@@ -1,0 +1,202 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Varshan S | Python Developer Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #000000;
+      color: #f2f2f2;
+    }
+    header {
+      background: linear-gradient(135deg, #1a0000, #330000, #4d0000);
+      color: #ff2e2e;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 0 20px #ff2e2e;
+    }
+    header img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-right: 1.5rem;
+      object-fit: cover;
+      border: 3px solid #ff2e2e;
+      box-shadow: 0 0 15px #ff2e2e;
+    }
+    header div h1 {
+      font-size: 2rem;
+      text-shadow: 0 0 10px #ff2e2e;
+    }
+    header div p {
+      font-size: 1.1rem;
+      text-shadow: 0 0 5px #ff2e2e;
+    }
+    section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      color: #ff2e2e;
+      border-bottom: 2px solid #ff2e2e;
+      padding-bottom: 0.5rem;
+      text-shadow: 0 0 8px #ff2e2e;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: #1a1a1a;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #ff2e2e;
+      transform: perspective(500px) rotateX(2deg);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: perspective(500px) rotateX(0deg) scale(1.02);
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+    a {
+      color: #ff2e2e;
+      text-decoration: none;
+      text-shadow: 0 0 5px #ff2e2e;
+    }
+    footer {
+      background: #1a1a1a;
+      color: #ff2e2e;
+      text-align: center;
+      padding: 1rem;
+      box-shadow: 0 0 10px #ff2e2e;
+    }
+    .download-btn {
+      background: #ff2e2e;
+      color: #000000;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 0 15px #ff2e2e;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .download-btn:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="profile.jpg" alt="Varshan's Profile Photo" />
+    <div>
+      <h1>Varshan S</h1>
+      <p>Python Developer</p>
+    </div>
+  </header>
+
+  <section>
+    <h2>About Me</h2>
+    <p>
+      I'm an enthusiastic Python developer with hands-on experience in Django, SQL, and data analysis. I love solving real-world problems through code and continuously upgrading my skills through projects and training.
+    </p>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="grid">
+      <div class="card">Python Programming</div>
+      <div class="card">SQL SERVER</div>
+      <div class="card">Django Framework</div>
+      <div class="card">Pandas & Matplotlib</div>
+      <div class="card">Problem Solving</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <div class="grid">
+      <div class="card">
+        <strong>E-Shop Web Application</strong><br/>
+        Built using Python, Django, MySQL, and HTML. Includes user login, product catalog, cart, and orders.
+      </div>
+      <div class="card">
+        <strong>Market Survey on Customer Satisfaction</strong><br/>
+        Conducted survey on Evocus Black Alkaline Water. Analyzed feedback and presented insights using Excel.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <ul>
+      <li><strong>B.Com (Banking)</strong> - Hajee Karutha Rowther Howdia College (2022 2025)</li>
+      <li><strong>HSC</strong> - SUM HR Sec School (2021-2022)</li>
+      <li><strong>SSLC</strong> - SUM HR Sec School (2019-2020)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Achievements</h2>
+    <ul>
+      <li> Winner of Zone 'C' Volleyball Match</li>
+      <li> Best NSS Volunteer - Community Service & Leadership</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Interests</h2>
+    <p>
+      I enjoy trekking, Kabaddi, and Lisent to crime investigation related podcasts. These hobbies sharpen my resilience, teamwork, and analytical thinking.
+    </p>
+  </section>
+
+  <section>
+    <h2>Languages</h2>
+    <ul>
+      <li>English - Advanced</li>
+      <li>Tamil - Native</li>
+      <li>Kannada - Intermediate</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Resume</h2>
+    <p>
+      <a href="VarshanSResume.pdf" download>
+        <button class="download-btn"> Download Resume</button>
+      </a>
+    </p>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>
+       Email: <a href="mailto:varshansaravanan23@gmail.com">varshansaravanan23@gmail.com</a><br/>
+       Phone: +91 7339524546<br/>
+       LinkedIn: <a href="https://www.linkedin.com/in/varshan-saravanan-915b552a3" target="_blank">linkedin.com/in/varshan-saravanan</a><br/>
+       GitHub: <a href="https://github.com/Varshan2311" target="_blank">github.com/Varshan2311</a>
+    </p>
+  </section>
+
+  <footer>
+    &copy; 2025 Varshan S 
+  </footer>
+
+</body>
+</html>
