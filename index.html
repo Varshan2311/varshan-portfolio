@@ -7,142 +7,132 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --primary-color: #ffd700;  /* Gold */
-    --background-color: #1e1f47;  /* Deep Blue-Purple */
-    --card-bg: #2f305a;  /* Muted Blue */
+    --primary-color: #8ab4f8; /* subtle blue */
+    --background-color: #121212; /* very dark gray */
+    --card-bg: #1e1e1e; /* darker gray */
+    --text-color: #e0e0e0; /* light gray */
     --font-family: 'Poppins', sans-serif;
   }
   * {
     box-sizing: border-box;
   }
   body {
-    margin: 0;
-    padding: 0;
+    margin: 0; padding: 0;
     font-family: var(--font-family);
-    background: var(--background-color);
-    color: #fdfdfd;
+    background-color: var(--background-color);
+    color: var(--text-color);
     scroll-behavior: smooth;
   }
   header {
     position: sticky;
     top: 0;
-    background: linear-gradient(135deg, #4b0082, #261f4c, #3d2e76);
+    background: #212121; /* dark header background */
     color: var(--primary-color);
     padding: 1.5rem 2rem;
     display: flex;
     align-items: center;
-    box-shadow: 0 0 30px var(--primary-color);
+    box-shadow: 0 2px 10px rgba(138,180,248,0.3);
     z-index: 1000;
     overflow: visible;
   }
-  header > div:first-child {
+  /* Container for profile image with circular frame but visible hair */
+  .profile-frame {
     position: relative;
     display: inline-block;
+    border-radius: 60px;
+    overflow: visible;
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(138,180,248,0.3);
     margin-right: 1.5rem;
   }
-  header img {
+  .profile-frame img {
     width: 120px;
-    height: 120px;
-    border-radius: 50%;
+    height: 130px; /* taller to show hair */
+    border-radius: 60px; /* circular */
     object-fit: cover;
-    object-position: center;
-    border: 5px solid transparent;
-    box-shadow: 0 0 50px var(--primary-color), 0 0 80px #ffea00;
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
-    filter: drop-shadow(0 0 15px var(--primary-color));
-    position: relative;
-    z-index: 10;
+    object-position: top center; /* show top including hair */
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 8px rgba(138,180,248,0.5);
   }
-  header img:hover {
-    transform: scale(1.15) rotate(10deg);
-    box-shadow: 0 0 60px #fff700, 0 0 110px #fff700;
-    filter: drop-shadow(0 0 30px #fff700);
+  .profile-frame img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(138,180,248,0.8);
   }
+  /* subtle lightning effect */
   .lightning-effect {
     position: absolute;
-    top: 0;
-    left: 5px;
+    top: 5px; left: 10px;
     width: 130px;
     height: 130px;
+    border-radius: 50%;
     pointer-events: none;
     z-index: 5;
-    background:
-      repeating-conic-gradient(
-        from 0deg,
-        transparent 0deg 12deg,
-        rgba(255, 215, 0, 0.15) 12deg 24deg
-      );
-    animation: lightning 2s infinite;
-    border-radius: 50%;
+    background: repeating-conic-gradient(
+      from 0deg,
+      transparent 0deg 15deg,
+      rgba(138,180,248,0.07) 15deg 30deg
+    );
+    animation: lightning 3s infinite;
   }
   @keyframes lightning {
-    0%, 20%, 100% { opacity: 0; }
-    10% { opacity: 1; }
-    15% { opacity: 0.6; }
+    0%, 30%, 100% { opacity: 0; }
+    15% { opacity: 0.25; }
+    20% { opacity: 0.15; }
   }
   header div h1 {
     margin: 0;
     font-weight: 600;
-    font-size: 1.8rem;
-    text-shadow: 0 0 15px var(--primary-color);
+    font-size: 1.75rem;
     letter-spacing: 1px;
   }
   header div p {
     margin: 0.1rem 0 0;
     font-weight: 300;
     font-size: 1.1rem;
-    text-shadow: 0 0 8px var(--primary-color);
-    letter-spacing: 1px;
+    color: var(--primary-color);
   }
   section {
-    padding: 2rem 1rem;
+    background: var(--card-bg);
     max-width: 900px;
     margin: 3rem auto;
-    background: linear-gradient(145deg, #3a3f74, #261f4c);
-    border-radius: 25px;
-    box-shadow:
-      0 0 20px var(--primary-color),
-      0 0 40px #ffd700cc;
-    transition: background-color 0.4s ease;
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(138,180,248,0.15);
+    transition: background-color 0.3s ease;
   }
   section:hover {
-    background-color: #261f4c;
+    background-color: #292929;
   }
   h2 {
     color: var(--primary-color);
     border-bottom: 2px solid var(--primary-color);
     padding-bottom: 0.5rem;
     margin-top: 0;
-    text-shadow: 0 0 15px var(--primary-color);
     font-weight: 600;
     letter-spacing: 1px;
   }
   .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1.25rem;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
     margin-top: 1rem;
   }
   .card {
-    background: var(--card-bg);
+    background: #2f2f2f;
     padding: 1.25rem;
-    border-radius: 18px;
-    box-shadow:
-      0 6px 12px rgba(255, 215, 0, 0.6),
-      0 12px 28px rgba(255, 215, 0, 0.3);
-    border: 2px solid transparent;
-    border-image-slice: 1;
-    border-image-source: linear-gradient(45deg, #ffe066, #ffdb4d);
-    transform: perspective(600px) rotateX(3deg);
-    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.3s ease;
+    border-radius: 14px;
+    box-shadow: 0 1px 6px rgba(138,180,248,0.2);
+    border: 1px solid transparent;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    cursor: pointer;
     text-align: center;
+    color: var(--text-color);
   }
   .card:hover {
-    transform: perspective(600px) rotateX(0deg) scale(1.1);
-    box-shadow:
-      0 10px 24px #fff066,
-      0 24px 50px #fff066cc;
-    border-color: #fff066;
+    transform: scale(1.03);
+    box-shadow: 0 4px 15px rgba(138,180,248,0.4);
+    border-color: var(--primary-color);
   }
   ul {
     list-style: none;
@@ -154,18 +144,17 @@
   a {
     color: var(--primary-color);
     text-decoration: none;
-    text-shadow: 0 0 8px var(--primary-color);
     transition: color 0.3s ease;
   }
   a:hover {
-    color: #fffacd;
+    color: #a0c4ff;
   }
   footer {
-    background: var(--card-bg);
+    background: #2f2f2f;
     color: var(--primary-color);
     text-align: center;
     padding: 1rem;
-    box-shadow: 0 0 15px var(--primary-color);
+    box-shadow: 0 -2px 8px rgba(138,180,248,0.15);
     margin-top: 5rem;
   }
   .download-btn {
@@ -175,13 +164,13 @@
     font-size: 1rem;
     border: none;
     border-radius: 8px;
-    box-shadow: 0 0 20px var(--primary-color);
+    box-shadow: 0 0 10px rgba(138,180,248,0.6);
     cursor: pointer;
     transition: all 0.3s ease;
   }
   .download-btn:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 30px #ffea00;
+    box-shadow: 0 0 20px rgba(138,180,248,0.9);
   }
   @media (max-width: 600px) {
     header {
@@ -189,15 +178,9 @@
       text-align: center;
       padding: 1rem;
     }
-    header > div:first-child {
+    .profile-frame {
       margin-right: 0;
       margin-bottom: 1rem;
-    }
-    header div h1 {
-      font-size: 1.5rem;
-    }
-    header div p {
-      font-size: 1rem;
     }
     section {
       margin: 2rem 1rem;
@@ -209,7 +192,7 @@
 <body>
 
 <header>
-  <div>
+  <div class="profile-frame">
     <img src="profile.jpg" alt="Varshan's Profile Photo" />
     <div class="lightning-effect"></div>
   </div>
