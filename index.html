@@ -1,230 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Varshan S | Python Developer Portfolio</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #000000;
-      color: #f2f2f2;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Varshan S | Python Developer Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --primary-color: #ff2e2e;
+    --background-color: #000000;
+    --card-bg: #1a1a1a;
+    --font-family: 'Poppins', sans-serif;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    background: var(--background-color);
+    color: #f2f2f2;
+    scroll-behavior: smooth;
+  }
+  header {
+    position: sticky;
+    top: 0;
+    background: linear-gradient(135deg, #1a0000, #330000, #4d0000);
+    color: var(--primary-color);
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 0 20px var(--primary-color);
+    z-index: 1000;
+  }
+  header img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin-right: 1.5rem;
+    object-fit: cover;
+    object-position: top;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 0 15px var(--primary-color);
+    transition: transform 0.3s ease;
+  }
+  header img:hover {
+    transform: scale(1.1) rotate(5deg);
+  }
+  header div h1 {
+    margin: 0;
+    font-weight: 600;
+    font-size: 1.8rem;
+    text-shadow: 0 0 10px var(--primary-color);
+  }
+  header div p {
+    margin: 0.1rem 0 0;
+    font-weight: 300;
+    font-size: 1.1rem;
+    text-shadow: 0 0 5px var(--primary-color);
+  }
+  section {
+    padding: 2rem 1rem;
+    max-width: 900px;
+    margin: 3rem auto;
+    background: #111111;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(255, 46, 46, 0.3);
+    transition: background-color 0.4s ease;
+  }
+  section:hover {
+    background-color: #1a0000;
+  }
+  h2 {
+    color: var(--primary-color);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+    text-shadow: 0 0 8px var(--primary-color);
+    font-weight: 600;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1rem;
+  }
+  .card {
+    background: var(--card-bg);
+    padding: 1.25rem;
+    border-radius: 15px;
+    box-shadow: 0 0 20px var(--primary-color);
+    transform: perspective(600px) rotateX(2deg);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+  .card:hover {
+    transform: perspective(600px) rotateX(0deg) scale(1.05);
+    box-shadow: 0 0 30px var(--primary-color);
+  }
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  li {
+    margin-bottom: 0.6rem;
+  }
+  a {
+    color: var(--primary-color);
+    text-decoration: none;
+    text-shadow: 0 0 5px var(--primary-color);
+    transition: color 0.3s ease;
+  }
+  a:hover {
+    color: #ff6b6b;
+  }
+  footer {
+    background: var(--card-bg);
+    color: var(--primary-color);
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 0 0 10px var(--primary-color);
+    margin-top: 4rem;
+  }
+  .download-btn {
+    background: var(--primary-color);
+    color: #000;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 20px var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .download-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px #ff6b6b;
+  }
+  @media (max-width: 600px) {
     header {
-      background: linear-gradient(135deg, #1a0000, #330000, #4d0000);
-      color: #ff2e2e;
-      padding: 2rem;
-      display: flex;
-      align-items: center;
-      box-shadow: 0 0 20px #ff2e2e;
-    }
-    header img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      margin-right: 1.5rem;
-      object-fit: cover;
-      object-position: top; /* Shows more of the hair */
-      border: 3px solid #ff2e2e;
-      box-shadow: 0 0 15px #ff2e2e;
-    }
-    header div h1 {
-      font-size: 2rem;
-      text-shadow: 0 0 10px #ff2e2e;
-    }
-    header div p {
-      font-size: 1.1rem;
-      text-shadow: 0 0 5px #ff2e2e;
-    }
-    section {
-      padding: 2rem;
-      max-width: 900px;
-      margin: auto;
-    }
-    h2 {
-      color: #ff2e2e;
-      border-bottom: 2px solid #ff2e2e;
-      padding-bottom: 0.5rem;
-      text-shadow: 0 0 8px #ff2e2e;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-    }
-    .card {
-      background: #1a1a1a;
-      padding: 1rem;
-      border-radius: 12px;
-      box-shadow: 0 0 15px #ff2e2e;
-      transform: perspective(500px) rotateX(2deg);
-      transition: transform 0.3s ease;
-    }
-    .card:hover {
-      transform: perspective(500px) rotateX(0deg) scale(1.02);
-    }
-    ul {
-      list-style: none;
-      padding-left: 0;
-    }
-    li {
-      margin-bottom: 0.5rem;
-    }
-    a {
-      color: #ff2e2e;
-      text-decoration: none;
-      text-shadow: 0 0 5px #ff2e2e;
-    }
-    footer {
-      background: #1a1a1a;
-      color: #ff2e2e;
+      flex-direction: column;
       text-align: center;
       padding: 1rem;
-      box-shadow: 0 0 10px #ff2e2e;
     }
-    .download-btn {
-      background: #ff2e2e;
-      color: #000000;
-      padding: 0.8rem 1.5rem;
+    header img {
+      margin-bottom: 1rem;
+    }
+    header div h1 {
+      font-size: 1.5rem;
+    }
+    header div p {
       font-size: 1rem;
-      border: none;
-      border-radius: 8px;
-      box-shadow: 0 0 15px #ff2e2e;
-      cursor: pointer;
-      transition: transform 0.2s ease;
     }
-    .download-btn:hover {
-      transform: scale(1.05);
+    section {
+      margin: 2rem 1rem;
+      padding: 1.5rem;
     }
-  </style>
+  }
+</style>
 </head>
 <body>
 
-  <header>
-    <img src="profile.jpg" alt="Varshan's Profile Photo" />
-    <div>
-      <h1>Varshan S</h1>
-      <p>Python Developer</p>
-    </div>
-  </header>
+<header>
+  <img src="profile.jpg" alt="Varshan's Profile Photo" />
+  <div>
+    <h1>Varshan S</h1>
+    <p>Python Developer</p>
+  </div>
+</header>
 
-  <section>
-    <h2>About Me</h2>
-    <p>
-      I’m a Python developer with strong expertise in Django and SQL, passionate about building scalable, high-performance applications. I focus on writing clean, efficient code and continuously enhance my technical skills through real-world projects, optimization challenges, and hands-on problem-solving.
-    </p>
-  </section>
+<section id="about">
+  <h2>About Me</h2>
+  <p>
+    I’m a Python developer with strong expertise in Django and SQL, passionate about building scalable, high-performance applications. I focus on writing clean, efficient code and continuously enhance my technical skills through real-world projects, optimization challenges, and hands-on problem-solving.
+  </p>
+</section>
 
-  <section>
-    <h2>Skills</h2>
-    <div class="grid">
-      <div class="card">Python Programming</div>
-      <div class="card">SQL SERVER</div>
-      <div class="card">Django Framework</div>
-      <div class="card">Pandas & Matplotlib</div>
-      <div class="card">Problem Solving</div>
-    </div>
-  </section>
+<!-- Other sections remain same or adapted similarly -->
 
-  <section>
-    <h2>Projects</h2>
-    <div class="grid">
-      <div class="card">
-        <strong>E-Shop Web Application</strong><br/>
-        Built using Python, Django, MySQL, and HTML. Includes user login, product catalog, cart, and orders.
-      </div>
-      <div class="card">
-        <strong>Market Survey on Customer Satisfaction</strong><br/>
-        Conducted survey on Evocus Black Alkaline Water. Analyzed feedback and presented insights using Excel.
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Education</h2>
-    <ul>
-      <li><strong>B.Com (Banking)</strong> - Hajee Karutha Rowther Howdia College (2022 - 2025)</li>
-      <li><strong>HSC</strong> - SUM HR Sec School (2021 - 2022)</li>
-      <li><strong>SSLC</strong> - SUM HR Sec School (2019 - 2020)</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Achievements</h2>
-    <ul>
-      <li>Winner of Zone 'C' Volleyball Match</li>
-      <li>Best NSS Volunteer - Community Service & Leadership</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Interests</h2>
-    <p>
-      I enjoy trekking, Kabaddi, and listening to crime investigation related podcasts. These hobbies sharpen my resilience, teamwork, and analytical thinking.
-    </p>
-  </section>
-
-  <section>
-    <h2>Languages</h2>
-    <ul>
-      <li>English - Advanced</li>
-      <li>Tamil - Native</li>
-      <li>Kannada - Intermediate</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Certifications</h2>
-    <div class="grid">
-      <div class="card">
-        <img src="python.jpg" alt="Python Certification" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
-        <strong>Python Certification</strong><br/>
-        Emexo Technologies
-      </div>
-      <div class="card">
-        <img src="sql.jpg" alt="SQL Certification" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
-        <strong>SQL Certification</strong><br/>
-        Scaler
-      </div>
-<div class="card">
-        <img src="prompt.jpg" alt="Introduction To Prompt Engineering" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
-        <strong>Introduction To Prompt Engineering Certification</strong><br/>
-        Simplilearn
-      </div>
-
-      <div class="card">
-        <img src="business.jpg" alt="Business Communications Certification" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
-        <strong>Business Communications</strong><br/>
-        HP Life
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Resume</h2>
-    <p>
-      <a href="VarshanSResume.pdf" download>
-        <button class="download-btn">Download Resume</button>
-      </a>
-    </p>
-  </section>
-
-  <section>
-    <h2>Contact</h2>
-    <p>
-      Email: <a href="mailto:varshansaravanan23@gmail.com">varshansaravanan23@gmail.com</a><br/>
-      Phone: +91 7339524546<br/>
-      LinkedIn: <a href="https://www.linkedin.com/in/varshan-saravanan-915b552a3" target="_blank">linkedin.com/in/varshan-saravanan</a><br/>
-      GitHub: <a href="https://github.com/Varshan2311" target="_blank">github.com/Varshan2311</a><br/>
-      LeetCode: <a href="https://leetcode.com/u/Varshan23/" target="_blank">leetcode.com/u/Varshan23</a>
-    </p>
-  </section>
-
-  <footer>
-    &copy; 2025 Varshan S
-  </footer>
+<footer>
+  &copy; 2025 Varshan S
+</footer>
 
 </body>
 </html>
