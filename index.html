@@ -129,6 +129,23 @@
   .view-counter span {
     margin-left: 0.5rem;
   }
+  .read-aloud-btn {
+    margin-left: 1.5rem;
+    padding: 7px 15px;
+    background-color: var(--primary-color);
+    color: #000;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    box-shadow: 0 0 10px rgba(138,180,248,0.6);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .read-aloud-btn:hover {
+    box-shadow: 0 0 15px rgba(138,180,248,0.9);
+    transform: scale(1.05);
+  }
   section {
     background: var(--card-bg);
     max-width: 900px;
@@ -275,6 +292,7 @@
     </svg>
     <span id="viewCount">Loading...</span>
   </div>
+  <button class="read-aloud-btn" aria-label="Read page content aloud" id="readAloudBtn">🔊 Read Aloud</button>
 </header>
 
 <section id="about">
@@ -477,6 +495,33 @@
   }
 
   window.onload = updateViewCount;
+
+  // Text to Speech feature for page reading
+  const readAloudBtn = document.createElement('button');
+  readAloudBtn.className = 'read-aloud-btn';
+  readAloudBtn.id = 'readAloudBtn';
+  readAloudBtn.textContent = '🔊 Read Aloud';
+  document.querySelector('header').appendChild(readAloudBtn);
+
+  function speakText(text) {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'en-US';
+      utterance.rate = 1;
+      window.speechSynthesis.speak(utterance);
+    } else {
+      alert("Sorry, your browser doesn’t support Text to Speech.");
+    }
+  }
+
+  readAloudBtn.addEventListener('click', () => {
+    let textContent = '';
+    document.querySelectorAll('section').forEach(sec => {
+      textContent += sec.innerText + ' ';
+    });
+    speakText(textContent.trim());
+  });
 </script>
 
 </body>
