@@ -7,10 +7,10 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --primary-color: #8ab4f8; /* subtle blue */
-    --background-color: #121212; /* very dark gray */
-    --card-bg: #1e1e1e; /* darker gray */
-    --text-color: #e0e0e0; /* light gray */
+    --primary-color: #8ab4f8;
+    --background-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #e0e0e0;
     --font-family: 'Poppins', sans-serif;
   }
   * {
@@ -26,7 +26,7 @@
   header {
     position: sticky;
     top: 0;
-    background: #212121; /* dark header background */
+    background: #212121;
     color: var(--primary-color);
     padding: 1.5rem 2rem;
     display: flex;
@@ -35,7 +35,6 @@
     z-index: 1000;
     overflow: visible;
   }
-  /* Container for profile image with circular frame but visible hair */
   .profile-frame {
     position: relative;
     display: inline-block;
@@ -47,10 +46,10 @@
   }
   .profile-frame img {
     width: 120px;
-    height: 130px; /* taller to show hair */
-    border-radius: 60px; /* circular */
+    height: 130px;
+    border-radius: 60px;
     object-fit: cover;
-    object-position: top center; /* show top including hair */
+    object-position: top center;
     display: block;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 0 8px rgba(138,180,248,0.5);
@@ -59,7 +58,6 @@
     transform: scale(1.1);
     box-shadow: 0 0 15px rgba(138,180,248,0.8);
   }
-  /* subtle lightning effect */
   .lightning-effect {
     position: absolute;
     top: 5px; left: 10px;
@@ -128,6 +126,7 @@
     cursor: pointer;
     text-align: center;
     color: var(--text-color);
+    user-select: none;
   }
   .card:hover {
     transform: scale(1.03);
@@ -138,8 +137,14 @@
     list-style: none;
     padding-left: 0;
   }
-  li {
-    margin-bottom: 0.6rem;
+  ul li {
+    padding: 0.6rem 0;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.2s ease;
+  }
+  ul li:hover {
+    background-color: rgba(138,180,248,0.2);
   }
   a {
     color: var(--primary-color);
@@ -172,20 +177,38 @@
     transform: scale(1.1);
     box-shadow: 0 0 20px rgba(138,180,248,0.9);
   }
-  @media (max-width: 600px) {
-    header {
-      flex-direction: column;
-      text-align: center;
-      padding: 1rem;
-    }
-    .profile-frame {
-      margin-right: 0;
-      margin-bottom: 1rem;
-    }
-    section {
-      margin: 2rem 1rem;
-      padding: 1.5rem;
-    }
+  /* Modal styles */
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+  }
+  .modal.active {
+    display: flex;
+  }
+  .modal-content {
+    background: var(--card-bg);
+    color: var(--text-color);
+    padding: 2rem;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 0 15px var(--primary-color);
+    position: relative;
+  }
+  .modal-close {
+    position: absolute;
+    top: 10px; right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+    cursor: pointer;
+    user-select: none;
   }
 </style>
 </head>
@@ -205,7 +228,11 @@
 <section id="about">
   <h2>About Me</h2>
   <p>
-    I’m a Python developer with strong expertise in Django and SQL, passionate about building scalable, high-performance applications. I focus on writing clean, efficient code and continuously enhance my technical skills through real-world projects, optimization challenges, and hands-on problem-solving.
+    I’m a Python developer with strong expertise in Django and SQL,
+    passionate about building scalable, high-performance applications.
+    I focus on writing clean, efficient code and continuously enhance
+    my technical skills through real-world projects, optimization
+    challenges, and hands-on problem-solving.
   </p>
 </section>
 
@@ -237,9 +264,9 @@
 <section id="education">
   <h2>Education</h2>
   <ul>
-    <li><strong>B.Com (Banking)</strong> - Hajee Karutha Rowther Howdia College (2022 - 2025)</li>
-    <li><strong>HSC</strong> - SUM HR Sec School (2021 - 2022)</li>
-    <li><strong>SSLC</strong> - SUM HR Sec School (2019 - 2020)</li>
+    <li onclick="openModal('hkrModal')">B.Com (Banking) - Hajee Karutha Rowther Howdia College (2022 - 2025)</li>
+    <li onclick="openModal('hscModal')">HSC - SUM HR Sec School (2021 - 2022)</li>
+    <li onclick="openModal('sslcModal')">SSLC - SUM HR Sec School (2019 - 2020)</li>
   </ul>
 </section>
 
@@ -254,7 +281,8 @@
 <section id="interests">
   <h2>Interests</h2>
   <p>
-    I enjoy trekking, Kabaddi, and listening to crime investigation related podcasts. These hobbies sharpen my resilience, teamwork, and analytical thinking.
+    I enjoy trekking, Kabaddi, and listening to crime investigation related podcasts.
+    These hobbies sharpen my resilience, teamwork, and analytical thinking.
   </p>
 </section>
 
@@ -270,25 +298,21 @@
 <section id="certifications">
   <h2>Certifications</h2>
   <div class="grid">
-    <div class="card">
+    <div class="card" onclick="openModal('pythonModal')">
       <img src="python.jpg" alt="Python Certification" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
-      <strong>Python Certification</strong><br/>
-      Emexo Technologies
+      <strong>Python Certification</strong>
     </div>
-    <div class="card">
+    <div class="card" onclick="openModal('sqlModal')">
       <img src="sql.jpg" alt="SQL Certification" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
-      <strong>SQL Certification</strong><br/>
-      Scaler
+      <strong>SQL Certification</strong>
     </div>
-    <div class="card">
+    <div class="card" onclick="openModal('promptModal')">
       <img src="prompt.jpg" alt="Introduction To Prompt Engineering" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
-      <strong>Introduction To Prompt Engineering Certification</strong><br/>
-      Simplilearn
+      <strong>Introduction To Prompt Engineering Certification</strong>
     </div>
-    <div class="card">
+    <div class="card" onclick="openModal('businessModal')">
       <img src="business.jpg" alt="Business Communications Certification" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
-      <strong>Business Communications</strong><br/>
-      HP Life
+      <strong>Business Communications</strong>
     </div>
   </div>
 </section>
@@ -316,6 +340,68 @@
 <footer>
   &copy; 2025 Varshan S
 </footer>
+
+<!-- Modals for Education -->
+<div id="hkrModal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close" onclick="closeModal('hkrModal')">&times;</span>
+    <h3>Hajee Karutha Rowther Howdia College</h3>
+    <p>A reputed college offering undergraduate commerce programs with a focus on banking, finance, and management. Known for experienced faculty and student support.</p>
+  </div>
+</div>
+<div id="hscModal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close" onclick="closeModal('hscModal')">&times;</span>
+    <h3>SUM HR Senior Secondary School</h3>
+    <p>An accredited senior secondary school providing comprehensive education with emphasis on science, commerce, and arts streams, fostering academic excellence.</p>
+  </div>
+</div>
+<div id="sslcModal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close" onclick="closeModal('sslcModal')">&times;</span>
+    <h3>SUM HR Secondary School</h3>
+    <p>A well-known secondary school focusing on a balanced curriculum with academic and extracurricular activities to promote holistic development.</p>
+  </div>
+</div>
+
+<!-- Modals for Certifications -->
+<div id="pythonModal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close" onclick="closeModal('pythonModal')">&times;</span>
+    <h3>Python Certification</h3>
+    <p>Certification from Emexo Technologies recognizing advanced Python programming skills including Django, SQL, and data analysis.</p>
+  </div>
+</div>
+<div id="sqlModal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close" onclick="closeModal('sqlModal')">&times;</span>
+    <h3>SQL Certification</h3>
+    <p>Scaler certification in SQL, showcasing proficiency in database management, queries, and optimization techniques.</p>
+  </div>
+</div>
+<div id="promptModal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close" onclick="closeModal('promptModal')">&times;</span>
+    <h3>Introduction To Prompt Engineering Certification</h3>
+    <p>Simplilearn certification on prompt engineering, covering prompt design, testing, and optimization for AI models.</p>
+  </div>
+</div>
+<div id="businessModal" class="modal">
+  <div class="modal-content">
+    <span class="modal-close" onclick="closeModal('businessModal')">&times;</span>
+    <h3>Business Communications Certification</h3>
+    <p>HP Life certification on effective business communications, presentation skills, and professional interactions.</p>
+  </div>
+</div>
+
+<script>
+  function openModal(id) {
+    document.getElementById(id).classList.add('active');
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('active');
+  }
+</script>
 
 </body>
 </html>
