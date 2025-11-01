@@ -13,9 +13,7 @@
     --text-color: #e0e0e0;
     --font-family: 'Poppins', sans-serif;
   }
-  * {
-    box-sizing: border-box;
-  }
+  * { box-sizing: border-box; }
   body {
     margin: 0; padding: 0;
     font-family: var(--font-family);
@@ -141,10 +139,23 @@
     user-select: none;
     box-shadow: 0 0 10px rgba(138,180,248,0.6);
     transition: box-shadow 0.3s ease, transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
   }
   .read-aloud-btn:hover {
     box-shadow: 0 0 15px rgba(138,180,248,0.9);
     transform: scale(1.05);
+    background: #a0c4ff;
+    color: #222;
+    border: 2px solid #222;
+  }
+  .read-aloud-btn .icon {
+    width: 18px;
+    height: 18px;
+    vertical-align: middle;
+    margin-right: 3px;
+    fill: #222;
   }
   section {
     background: var(--card-bg);
@@ -233,7 +244,6 @@
     transform: scale(1.1);
     box-shadow: 0 0 20px rgba(138,180,248,0.9);
   }
-  /* Modal styles */
   .modal {
     display: none;
     position: fixed;
@@ -244,16 +254,13 @@
     justify-content: center;
     align-items: center;
   }
-  .modal.active {
-    display: flex;
-  }
+  .modal.active { display: flex; }
   .modal-content {
     background: var(--card-bg);
     color: var(--text-color);
     padding: 2rem;
     border-radius: 12px;
-    width: 90%;
-    max-width: 450px;
+    width: 90%; max-width: 450px;
     box-shadow: 0 0 15px var(--primary-color);
     position: relative;
   }
@@ -292,7 +299,12 @@
     </svg>
     <span id="viewCount">Loading...</span>
   </div>
-  <button class="read-aloud-btn" aria-label="Read page content aloud" id="readAloudBtn">🔊 Read Aloud</button>
+  <button class="read-aloud-btn" id="readAloudBtn" aria-label="Read page content aloud">
+    <svg class="icon" viewBox="0 0 20 20">
+      <path d="M3 8v4h4l5 5V3l-5 5H3z"/>
+    </svg>
+    Read Aloud
+  </button>
 </header>
 
 <section id="about">
@@ -415,7 +427,7 @@
   &copy; 2025 Varshan S
 </footer>
 
-<!-- Modals for Education -->
+<!-- Modals for Education and Certifications -->
 <div id="hkrModal" class="modal">
   <div class="modal-content">
     <span class="modal-close" onclick="closeModal('hkrModal')">&times;</span>
@@ -440,8 +452,6 @@
     <p><strong>Location:</strong> Madurai, Tamil Nadu, India</p>
   </div>
 </div>
-
-<!-- Modals for Certifications -->
 <div id="pythonModal" class="modal">
   <div class="modal-content">
     <span class="modal-close" onclick="closeModal('pythonModal')">&times;</span>
@@ -496,31 +506,21 @@
 
   window.onload = updateViewCount;
 
-  // Text to Speech feature for page reading
-  const readAloudBtn = document.createElement('button');
-  readAloudBtn.className = 'read-aloud-btn';
-  readAloudBtn.id = 'readAloudBtn';
-  readAloudBtn.textContent = '🔊 Read Aloud';
-  document.querySelector('header').appendChild(readAloudBtn);
-
-  function speakText(text) {
+  // Read Aloud text-to-speech
+  document.getElementById('readAloudBtn').addEventListener('click', function() {
+    let content = '';
+    document.querySelectorAll('section').forEach(sec => {
+      content += sec.innerText + ' ';
+    });
     if ('speechSynthesis' in window) {
       window.speechSynthesis.cancel();
-      const utterance = new SpeechSynthesisUtterance(text);
-      utterance.lang = 'en-US';
-      utterance.rate = 1;
-      window.speechSynthesis.speak(utterance);
+      const msg = new SpeechSynthesisUtterance(content.trim());
+      msg.lang = 'en-US';
+      msg.rate = 1;
+      window.speechSynthesis.speak(msg);
     } else {
-      alert("Sorry, your browser doesn’t support Text to Speech.");
+      alert("Sorry, your browser doesn't support Text to Speech.");
     }
-  }
-
-  readAloudBtn.addEventListener('click', () => {
-    let textContent = '';
-    document.querySelectorAll('section').forEach(sec => {
-      textContent += sec.innerText + ' ';
-    });
-    speakText(textContent.trim());
   });
 </script>
 
