@@ -35,38 +35,46 @@
     z-index: 1000;
   }
   header img {
-    width: 90px;
-    height: 90px;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
     margin-right: 1.5rem;
     object-fit: cover;
     object-position: top;
-    border: 3px solid var(--primary-color);
-    box-shadow: 0 0 15px var(--primary-color);
-    transition: transform 0.3s ease;
+    border: 4px solid;
+    border-image-slice: 1;
+    border-width: 4px;
+    border-image-source: linear-gradient(45deg, #ff2e2e, #ff6b6b);
+    box-shadow: 0 0 20px rgb(255 46 46 / 0.8), 0 8px 15px rgb(255 46 46 / 0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   header img:hover {
     transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 0 30px #ff6b6b, 0 12px 20px #ff6b6b;
   }
   header div h1 {
     margin: 0;
     font-weight: 600;
     font-size: 1.8rem;
     text-shadow: 0 0 10px var(--primary-color);
+    letter-spacing: 1px;
   }
   header div p {
     margin: 0.1rem 0 0;
     font-weight: 300;
     font-size: 1.1rem;
     text-shadow: 0 0 5px var(--primary-color);
+    letter-spacing: 1px;
   }
   section {
     padding: 2rem 1rem;
     max-width: 900px;
     margin: 3rem auto;
     background: #111111;
-    border-radius: 12px;
-    box-shadow: 0 0 30px rgba(255, 46, 46, 0.3);
+    border-radius: 15px;
+    box-shadow:
+      0 4px 6px rgba(255, 46, 46, 0.3),
+      0 10px 20px rgba(255, 46, 46, 0.2);
     transition: background-color 0.4s ease;
   }
   section:hover {
@@ -79,6 +87,7 @@
     margin-top: 0;
     text-shadow: 0 0 8px var(--primary-color);
     font-weight: 600;
+    letter-spacing: 1px;
   }
   .grid {
     display: grid;
@@ -89,14 +98,22 @@
   .card {
     background: var(--card-bg);
     padding: 1.25rem;
-    border-radius: 15px;
-    box-shadow: 0 0 20px var(--primary-color);
+    border-radius: 18px;
+    box-shadow:
+      0 4px 6px rgba(255, 46, 46, 0.3),
+      0 10px 20px rgba(255, 46, 46, 0.2);
+    border: 2px solid transparent;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(45deg, #ff2e2e, #ff6b6b);
     transform: perspective(600px) rotateX(2deg);
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.3s ease;
   }
   .card:hover {
     transform: perspective(600px) rotateX(0deg) scale(1.05);
-    box-shadow: 0 0 30px var(--primary-color);
+    box-shadow:
+      0 8px 12px rgba(255, 107, 107, 0.6),
+      0 14px 30px rgba(255, 107, 107, 0.4);
+    border-color: #ff6b6b;
   }
   ul {
     list-style: none;
@@ -176,7 +193,109 @@
   </p>
 </section>
 
-<!-- Other sections remain same or adapted similarly -->
+<section id="skills">
+  <h2>Skills</h2>
+  <div class="grid">
+    <div class="card">Python Programming</div>
+    <div class="card">SQL SERVER</div>
+    <div class="card">Django Framework</div>
+    <div class="card">Pandas & Matplotlib</div>
+    <div class="card">Problem Solving</div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="grid">
+    <div class="card">
+      <strong>E-Shop Web Application</strong><br/>
+      Built using Python, Django, MySQL, and HTML. Includes user login, product catalog, cart, and orders.
+    </div>
+    <div class="card">
+      <strong>Market Survey on Customer Satisfaction</strong><br/>
+      Conducted survey on Evocus Black Alkaline Water. Analyzed feedback and presented insights using Excel.
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <h2>Education</h2>
+  <ul>
+    <li><strong>B.Com (Banking)</strong> - Hajee Karutha Rowther Howdia College (2022 - 2025)</li>
+    <li><strong>HSC</strong> - SUM HR Sec School (2021 - 2022)</li>
+    <li><strong>SSLC</strong> - SUM HR Sec School (2019 - 2020)</li>
+  </ul>
+</section>
+
+<section id="achievements">
+  <h2>Achievements</h2>
+  <ul>
+    <li>Winner of Zone 'C' Volleyball Match</li>
+    <li>Best NSS Volunteer - Community Service & Leadership</li>
+  </ul>
+</section>
+
+<section id="interests">
+  <h2>Interests</h2>
+  <p>
+    I enjoy trekking, Kabaddi, and listening to crime investigation related podcasts. These hobbies sharpen my resilience, teamwork, and analytical thinking.
+  </p>
+</section>
+
+<section id="languages">
+  <h2>Languages</h2>
+  <ul>
+    <li>English - Advanced</li>
+    <li>Tamil - Native</li>
+    <li>Kannada - Intermediate</li>
+  </ul>
+</section>
+
+<section id="certifications">
+  <h2>Certifications</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="python.jpg" alt="Python Certification" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
+      <strong>Python Certification</strong><br/>
+      Emexo Technologies
+    </div>
+    <div class="card">
+      <img src="sql.jpg" alt="SQL Certification" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
+      <strong>SQL Certification</strong><br/>
+      Scaler
+    </div>
+    <div class="card">
+      <img src="prompt.jpg" alt="Introduction To Prompt Engineering" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
+      <strong>Introduction To Prompt Engineering Certification</strong><br/>
+      Simplilearn
+    </div>
+    <div class="card">
+      <img src="business.jpg" alt="Business Communications Certification" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
+      <strong>Business Communications</strong><br/>
+      HP Life
+    </div>
+  </div>
+</section>
+
+<section id="resume">
+  <h2>Resume</h2>
+  <p>
+    <a href="VarshanSResume.pdf" download>
+      <button class="download-btn">Download Resume</button>
+    </a>
+  </p>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p>
+    Email: <a href="mailto:varshansaravanan23@gmail.com">varshansaravanan23@gmail.com</a><br/>
+    Phone: +91 7339524546<br/>
+    LinkedIn: <a href="https://www.linkedin.com/in/varshan-saravanan-915b552a3" target="_blank" rel="noopener noreferrer">linkedin.com/in/varshan-saravanan</a><br/>
+    GitHub: <a href="https://github.com/Varshan2311" target="_blank" rel="noopener noreferrer">github.com/Varshan2311</a><br/>
+    LeetCode: <a href="https://leetcode.com/u/Varshan23/" target="_blank" rel="noopener noreferrer">leetcode.com/u/Varshan23</a>
+  </p>
+</section>
 
 <footer>
   &copy; 2025 Varshan S
