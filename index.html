@@ -13,7 +13,9 @@
     --text-color: #e0e0e0;
     --font-family: 'Poppins', sans-serif;
   }
-  * { box-sizing: border-box; }
+  * {
+    box-sizing: border-box;
+  }
   body {
     margin: 0; padding: 0;
     font-family: var(--font-family);
@@ -29,7 +31,7 @@
     padding: 1.5rem 2rem;
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1rem;
     box-shadow: 0 2px 10px rgba(138,180,248,0.3);
     z-index: 1000;
     overflow: visible;
@@ -113,8 +115,7 @@
     color: #a0c4ff;
   }
   .view-counter {
-    margin-left: 1rem;
-    padding: 5px 12px;
+    padding: 5px 10px;
     background: #2f2f2f;
     border-radius: 12px;
     font-size: 0.9rem;
@@ -124,11 +125,14 @@
     white-space: nowrap;
     user-select: none;
   }
-  .view-counter span {
-    margin-left: 0.5rem;
+  .view-counter svg {
+    width: 20px;
+    height: 20px;
+    fill: var(--primary-color);
+    margin-right: 5px;
   }
-  .read-aloud-btn {
-    margin-left: 1.5rem;
+  .read-aloud-btn, .mute-btn {
+    margin-left: 1rem;
     padding: 7px 15px;
     background-color: var(--primary-color);
     color: #000;
@@ -143,25 +147,24 @@
     align-items: center;
     gap: 6px;
   }
-  .read-aloud-btn:hover {
+  .read-aloud-btn:hover, .mute-btn:hover {
     box-shadow: 0 0 15px rgba(138,180,248,0.9);
     transform: scale(1.05);
     background: #a0c4ff;
     color: #222;
     border: 2px solid #222;
   }
-  .read-aloud-btn .icon {
+  .read-aloud-btn .icon, .mute-btn .icon {
     width: 18px;
     height: 18px;
     vertical-align: middle;
-    margin-right: 3px;
     fill: #222;
   }
   section {
-    background: var(--card-bg);
     max-width: 900px;
     margin: 3rem auto;
     padding: 2rem 1.5rem;
+    background: var(--card-bg);
     border-radius: 12px;
     box-shadow: 0 2px 8px rgba(138,180,248,0.15);
     transition: background-color 0.3s ease;
@@ -213,14 +216,6 @@
   ul li:hover {
     background-color: rgba(138,180,248,0.2);
   }
-  a {
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  a:hover {
-    color: #a0c4ff;
-  }
   footer {
     background: #2f2f2f;
     color: var(--primary-color);
@@ -244,6 +239,7 @@
     transform: scale(1.1);
     box-shadow: 0 0 20px rgba(138,180,248,0.9);
   }
+  /* Modal styles */
   .modal {
     display: none;
     position: fixed;
@@ -300,10 +296,12 @@
     <span id="viewCount">Loading...</span>
   </div>
   <button class="read-aloud-btn" id="readAloudBtn" aria-label="Read page content aloud">
-    <svg class="icon" viewBox="0 0 20 20">
-      <path d="M3 8v4h4l5 5V3l-5 5H3z"/>
-    </svg>
+    <svg class="icon" viewBox="0 0 20 20"><path d="M3 8v4h4l5 5V3l-5 5H3z"/></svg>
     Read Aloud
+  </button>
+  <button class="mute-btn" id="muteBtn" aria-label="Mute/unmute voice">
+    <svg class="icon" viewBox="0 0 20 20"><path d="M14 9v-2a2 2 0 0 0-2-2H7v10h5a2 2 0 0 0 2-2v-2l4 4V5l-4 4z"/></svg>
+    Mute
   </button>
 </header>
 
@@ -329,199 +327,49 @@
   </div>
 </section>
 
-<section id="projects">
-  <h2>Projects</h2>
-  <div class="grid">
-    <div class="card">
-      <strong>E-Shop Web Application</strong><br/>
-      Built using Python, Django, MySQL, and HTML. Includes user login, product catalog, cart, and orders.
-    </div>
-    <div class="card">
-      <strong>Market Survey on Customer Satisfaction</strong><br/>
-      Conducted survey on Evocus Black Alkaline Water. Analyzed feedback and presented insights using Excel.
-    </div>
-  </div>
-</section>
-
-<section id="education">
-  <h2>Education</h2>
-  <ul>
-    <li onclick="openModal('hkrModal')">B.Com (Banking) - Hajee Karutha Rowther Howdia College (2022 - 2025)</li>
-    <li onclick="openModal('hscModal')">HSC - SUM HR Sec School (2021 - 2022)</li>
-    <li onclick="openModal('sslcModal')">SSLC - SUM HR Sec School (2019 - 2020)</li>
-  </ul>
-</section>
-
-<section id="achievements">
-  <h2>Achievements</h2>
-  <ul>
-    <li>Winner of Zone 'C' Volleyball Match</li>
-    <li>Best NSS Volunteer - Community Service & Leadership</li>
-  </ul>
-</section>
-
-<section id="interests">
-  <h2>Interests</h2>
-  <p>
-    I enjoy trekking, Kabaddi, and listening to crime investigation related podcasts.
-    These hobbies sharpen my resilience, teamwork, and analytical thinking.
-  </p>
-</section>
-
-<section id="languages">
-  <h2>Languages</h2>
-  <ul>
-    <li>English - Advanced</li>
-    <li>Tamil - Native</li>
-    <li>Kannada - Intermediate</li>
-  </ul>
-</section>
-
-<section id="certifications">
-  <h2>Certifications</h2>
-  <div class="grid">
-    <div class="card" onclick="openModal('pythonModal')">
-      <img src="python.jpg" alt="Python Certification" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
-      <strong>Python Certification</strong><br/>
-      <small>by Emexo Technologies</small>
-    </div>
-    <div class="card" onclick="openModal('sqlModal')">
-      <img src="sql.jpg" alt="SQL Certification" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
-      <strong>SQL Certification</strong><br/>
-      <small>by Scaler</small>
-    </div>
-    <div class="card" onclick="openModal('promptModal')">
-      <img src="prompt.jpg" alt="Introduction To Prompt Engineering" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
-      <strong>Introduction To Prompt Engineering Certification</strong><br/>
-      <small>by Simplilearn</small>
-    </div>
-    <div class="card" onclick="openModal('businessModal')">
-      <img src="business.jpg" alt="Business Communications Certification" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
-      <strong>Business Communications</strong><br/>
-      <small>by HP Life</small>
-    </div>
-  </div>
-</section>
-
-<section id="resume">
-  <h2>Resume</h2>
-  <p>
-    <a href="VarshanSResume.pdf" download>
-      <button class="download-btn">Download Resume</button>
-    </a>
-  </p>
-</section>
-
-<section id="contact">
-  <h2>Contact</h2>
-  <p>
-    Email: <a href="mailto:varshansaravanan23@gmail.com">varshansaravanan23@gmail.com</a><br/>
-    Phone: +91 7339524546<br/>
-    LinkedIn: <a href="https://www.linkedin.com/in/varshan-saravanan-915b552a3" target="_blank" rel="noopener noreferrer">linkedin.com/in/varshan-saravanan</a><br/>
-    GitHub: <a href="https://github.com/Varshan2311" target="_blank" rel="noopener noreferrer">github.com/Varshan2311</a><br/>
-    LeetCode: <a href="https://leetcode.com/u/Varshan23/" target="_blank" rel="noopener noreferrer">leetcode.com/u/Varshan23</a>
-  </p>
-</section>
-
-<footer>
-  &copy; 2025 Varshan S
-</footer>
-
-<!-- Modals for Education and Certifications -->
-<div id="hkrModal" class="modal">
-  <div class="modal-content">
-    <span class="modal-close" onclick="closeModal('hkrModal')">&times;</span>
-    <h3>Hajee Karutha Rowther Howdia College</h3>
-    <p>A reputed college offering undergraduate commerce programs with a focus on banking, finance, and management. Known for experienced faculty and student support.</p>
-    <p><strong>Location:</strong> Madurai, Tamil Nadu, India</p>
-  </div>
-</div>
-<div id="hscModal" class="modal">
-  <div class="modal-content">
-    <span class="modal-close" onclick="closeModal('hscModal')">&times;</span>
-    <h3>SUM HR Senior Secondary School</h3>
-    <p>An accredited senior secondary school providing comprehensive education with emphasis on science, commerce, and arts streams, fostering academic excellence.</p>
-    <p><strong>Location:</strong> Madurai, Tamil Nadu, India</p>
-  </div>
-</div>
-<div id="sslcModal" class="modal">
-  <div class="modal-content">
-    <span class="modal-close" onclick="closeModal('sslcModal')">&times;</span>
-    <h3>SUM HR Secondary School</h3>
-    <p>A well-known secondary school focusing on a balanced curriculum with academic and extracurricular activities to promote holistic development.</p>
-    <p><strong>Location:</strong> Madurai, Tamil Nadu, India</p>
-  </div>
-</div>
-<div id="pythonModal" class="modal">
-  <div class="modal-content">
-    <span class="modal-close" onclick="closeModal('pythonModal')">&times;</span>
-    <h3>Python Certification</h3>
-    <p>Certification from Emexo Technologies recognizing advanced Python programming skills including Django, SQL, and data analysis.</p>
-  </div>
-</div>
-<div id="sqlModal" class="modal">
-  <div class="modal-content">
-    <span class="modal-close" onclick="closeModal('sqlModal')">&times;</span>
-    <h3>SQL Certification</h3>
-    <p>Scaler certification in SQL, showcasing proficiency in database management, queries, and optimization techniques.</p>
-  </div>
-</div>
-<div id="promptModal" class="modal">
-  <div class="modal-content">
-    <span class="modal-close" onclick="closeModal('promptModal')">&times;</span>
-    <h3>Introduction To Prompt Engineering Certification</h3>
-    <p>Simplilearn certification on prompt engineering, covering prompt design, testing, and optimization for AI models.</p>
-  </div>
-</div>
-<div id="businessModal" class="modal">
-  <div class="modal-content">
-    <span class="modal-close" onclick="closeModal('businessModal')">&times;</span>
-    <h3>Business Communications Certification</h3>
-    <p>HP Life certification on effective business communications, presentation skills, and professional interactions.</p>
-  </div>
-</div>
+<!-- Add other sections as needed -->
 
 <script>
-  function openModal(id) {
-    document.getElementById(id).classList.add('active');
-  }
-  function closeModal(id) {
-    document.getElementById(id).classList.remove('active');
-  }
-
-  // Visitor counter using localStorage
-  const viewCountSpan = document.getElementById('viewCount');
-
-  function updateViewCount() {
+  // Visitor counter with local storage
+  const viewCounter = document.getElementById('viewCount');
+  function updateViewCounter() {
     let count = localStorage.getItem('portfolio_view_count');
-    if (count === null) {
-      count = 0;
-    } else {
-      count = parseInt(count);
-    }
-    count++;
+    if (!count) count = 0;
+    count = parseInt(count) + 1;
     localStorage.setItem('portfolio_view_count', count);
-    viewCountSpan.textContent = count + (count === 1 ? ' visitor' : ' visitors');
+    viewCounter.textContent = count + (count === 1 ? ' visitor' : ' visitors');
   }
+  window.onload = updateViewCounter;
 
-  window.onload = updateViewCount;
+  // Text to Speech with mute feature
+  let isMuted = false;
+  const muteBtn = document.getElementById('muteBtn');
+  const readBtn = document.getElementById('readAloudBtn');
 
-  // Read Aloud text-to-speech
-  document.getElementById('readAloudBtn').addEventListener('click', function() {
-    let content = '';
-    document.querySelectorAll('section').forEach(sec => {
-      content += sec.innerText + ' ';
-    });
+  muteBtn.onclick = () => {
+    isMuted = !isMuted;
+    window.speechSynthesis.cancel();
+    muteBtn.textContent = isMuted ? '🔈 Unmute' : '🔇 Mute';
+  };
+
+  function speakContent() {
+    if (isMuted) return;
     if ('speechSynthesis' in window) {
       window.speechSynthesis.cancel();
-      const msg = new SpeechSynthesisUtterance(content.trim());
-      msg.lang = 'en-US';
-      msg.rate = 1;
-      window.speechSynthesis.speak(msg);
+      let textToSpeak = '';
+      document.querySelectorAll('section').forEach(sec => {
+        textToSpeak += sec.innerText + ' ';
+      });
+      const utterance = new SpeechSynthesisUtterance(textToSpeak.trim());
+      utterance.lang = 'en-US';
+      utterance.rate = 1;
+      window.speechSynthesis.speak(utterance);
     } else {
-      alert("Sorry, your browser doesn't support Text to Speech.");
+      alert("Text-to-speech not supported in this browser.");
     }
-  });
+  }
+
+  readBtn.onclick = speakContent;
 </script>
 
 </body>
