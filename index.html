@@ -247,9 +247,29 @@
     cursor: pointer;
     user-select: none;
   }
+  #language-select {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 0.5rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    box-shadow: 0 0 12px var(--primary-color);
+    cursor: pointer;
+    z-index: 11000;
+  }
 </style>
 </head>
 <body>
+
+<select id="language-select" aria-label="Select Language">
+  <option value="en" selected>English</option>
+  <option value="es">Español</option>
+  <option value="fr">Français</option>
+  <option value="ta">[translate:தமிழ்]</option>
+</select>
 
 <header>
   <div class="profile-frame">
@@ -257,15 +277,15 @@
     <div class="lightning-effect"></div>
   </div>
   <div class="name-title">
-    <h1>Varshan S</h1>
-    <p>Python Developer</p>
+    <h1 data-key="name">Varshan S</h1>
+    <p data-key="role">Python Developer</p>
   </div>
   <div class="contact-details">
-    <p>Email: <a href="mailto:varshansaravanan23@gmail.com">varshansaravanan23@gmail.com</a></p>
-    <p>Phone: +91 7339524546</p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/varshan-saravanan-915b552a3" target="_blank" rel="noopener noreferrer">linkedin.com/in/varshan-saravanan</a></p>
-    <p>GitHub: <a href="https://github.com/Varshan2311" target="_blank" rel="noopener noreferrer">github.com/Varshan2311</a></p>
-    <p>LeetCode: <a href="https://leetcode.com/u/Varshan23/" target="_blank" rel="noopener noreferrer">leetcode.com/u/Varshan23</a></p>
+    <p data-key="email">Email: <a href="mailto:varshansaravanan23@gmail.com" data-key="email-link">varshansaravanan23@gmail.com</a></p>
+    <p data-key="phone">Phone: +91 7339524546</p>
+    <p data-key="linkedin">LinkedIn: <a href="https://www.linkedin.com/in/varshan-saravanan-915b552a3" target="_blank" rel="noopener noreferrer" data-key="linkedin-link">linkedin.com/in/varshan-saravanan</a></p>
+    <p data-key="github">GitHub: <a href="https://github.com/Varshan2311" target="_blank" rel="noopener noreferrer" data-key="github-link">github.com/Varshan2311</a></p>
+    <p data-key="leetcode">LeetCode: <a href="https://leetcode.com/u/Varshan23/" target="_blank" rel="noopener noreferrer" data-key="leetcode-link">leetcode.com/u/Varshan23</a></p>
   </div>
   <div class="view-counter" aria-label="Portfolio view count">
     <svg width="20" height="20" fill="var(--primary-color)" aria-hidden="true" viewBox="0 0 24 24">
@@ -275,9 +295,141 @@
   </div>
 </header>
 
-<!-- Your portfolio content sections here (About, Skills, Projects, Education, etc.) -->
+<section id="about">
+  <h2 data-key="about-title">About Me</h2>
+  <p data-key="about-text">
+    I’m a Python developer with strong expertise in Django and SQL,
+    passionate about building scalable, high-performance applications.
+    I focus on writing clean, efficient code and continuously enhance
+    my technical skills through real-world projects, optimization
+    challenges, and hands-on problem-solving.
+  </p>
+</section>
+
+<section id="skills">
+  <h2 data-key="skills-title">Skills</h2>
+  <div class="grid">
+    <a href="https://www.google.com/search?q=Python+Programming" target="_blank" class="card" data-key="skill-python">Python Programming</a>
+    <a href="https://www.google.com/search?q=SQL+SERVER" target="_blank" class="card" data-key="skill-sqlserver">SQL SERVER</a>
+    <a href="https://www.google.com/search?q=Django+Framework" target="_blank" class="card" data-key="skill-django">Django Framework</a>
+    <a href="https://www.google.com/search?q=Pandas+Matplotlib" target="_blank" class="card" data-key="skill-pandas">Pandas & Matplotlib</a>
+    <a href="https://www.google.com/search?q=Problem+Solving" target="_blank" class="card" data-key="skill-problemsolving">Problem Solving</a>
+  </div>
+</section>
+
+<!-- Similarly add data-key to all your texts that need translation -->
 
 <script>
+  // Translation data - add your translations here
+  const translations = {
+    "en": {
+      "name": "Varshan S",
+      "role": "Python Developer",
+      "email": "Email: ",
+      "email-link": "varshansaravanan23@gmail.com",
+      "phone": "Phone: +91 7339524546",
+      "linkedin": "LinkedIn: ",
+      "linkedin-link": "linkedin.com/in/varshan-saravanan",
+      "github": "GitHub: ",
+      "github-link": "github.com/Varshan2311",
+      "leetcode": "LeetCode: ",
+      "leetcode-link": "leetcode.com/u/Varshan23",
+      "about-title": "About Me",
+      "about-text": "I’m a Python developer with strong expertise in Django and SQL, passionate about building scalable, high-performance applications. I focus on writing clean, efficient code and continuously enhance my technical skills through real-world projects, optimization challenges, and hands-on problem-solving.",
+      "skills-title": "Skills",
+      "skill-python": "Python Programming",
+      "skill-sqlserver": "SQL SERVER",
+      "skill-django": "Django Framework",
+      "skill-pandas": "Pandas & Matplotlib",
+      "skill-problemsolving": "Problem Solving",
+      // Add more keys with English texts for your entire content
+    },
+    "es": {
+      "name": "Varshan S",
+      "role": "Desarrollador de Python",
+      "email": "Correo: ",
+      "email-link": "varshansaravanan23@gmail.com",
+      "phone": "Teléfono: +91 7339524546",
+      "linkedin": "LinkedIn: ",
+      "linkedin-link": "linkedin.com/in/varshan-saravanan",
+      "github": "GitHub: ",
+      "github-link": "github.com/Varshan2311",
+      "leetcode": "LeetCode: ",
+      "leetcode-link": "leetcode.com/u/Varshan23",
+      "about-title": "Sobre mí",
+      "about-text": "Soy un desarrollador de Python con gran experiencia en Django y SQL, apasionado por construir aplicaciones escalables y de alto rendimiento. Me enfoco en escribir código limpio y eficiente y mejorar continuamente mis habilidades técnicas a través de proyectos del mundo real, desafíos de optimización y resolución práctica de problemas.",
+      "skills-title": "Habilidades",
+      "skill-python": "Programación en Python",
+      "skill-sqlserver": "SQL SERVER",
+      "skill-django": "Framework Django",
+      "skill-pandas": "Pandas y Matplotlib",
+      "skill-problemsolving": "Resolución de problemas"
+    },
+    "fr": {
+      "name": "Varshan S",
+      "role": "Développeur Python",
+      "email": "Email : ",
+      "email-link": "varshansaravanan23@gmail.com",
+      "phone": "Téléphone : +91 7339524546",
+      "linkedin": "LinkedIn : ",
+      "linkedin-link": "linkedin.com/in/varshan-saravanan",
+      "github": "GitHub : ",
+      "github-link": "github.com/Varshan2311",
+      "leetcode": "LeetCode : ",
+      "leetcode-link": "leetcode.com/u/Varshan23",
+      "about-title": "À Propos de Moi",
+      "about-text": "Je suis développeur Python avec une forte expertise en Django et SQL, passionné par la création d'applications évolutives et performantes. Je me concentre sur l'écriture d'un code propre et efficace et j'améliore continuellement mes compétences techniques à travers des projets réels, des défis d'optimisation et la résolution pratique de problèmes.",
+      "skills-title": "Compétences",
+      "skill-python": "Programmation Python",
+      "skill-sqlserver": "SQL SERVER",
+      "skill-django": "Framework Django",
+      "skill-pandas": "Pandas et Matplotlib",
+      "skill-problemsolving": "Résolution de problèmes"
+    },
+    "ta": { 
+      "name": "வர்சன் எஸ்",
+      "role": "[translate:பைதான் டெவலப்பர்]",
+      "email": "[translate:மின்னஞ்சல்:] ",
+      "email-link": "varshansaravanan23@gmail.com",
+      "phone": "[translate:தொலைபேசி:] +91 7339524546",
+      "linkedin": "LinkedIn: ",
+      "linkedin-link": "linkedin.com/in/varshan-saravanan",
+      "github": "GitHub: ",
+      "github-link": "github.com/Varshan2311",
+      "leetcode": "LeetCode: ",
+      "leetcode-link": "leetcode.com/u/Varshan23",
+      "about-title": "[translate:என்னைபற்றி]",
+      "about-text": "[translate:நான் Django மற்றும் SQL-இல் வலுவான அனுபவமுள்ள Python டெவலப்பர், எளிதில் அதிகளவு செயல்படும் பயன்பாடுகளை உருவாக்க ஆர்வமுள்ளவர். நன்றாக மற்றும் விளைவான குறியீட்டை எழுதுவதே முதன்மை, நிஜ உலகக் கோஷங்களுடன் தொழில்நுட்ப திறன்களை மேம்படுத்திக்கொள்கிறேன்.]",
+      "skills-title": "[translate:திறன்கள்]",
+      "skill-python": "[translate:பைதான் நிரலாக்கம்]",
+      "skill-sqlserver": "SQL SERVER",
+      "skill-django": "[translate:Django கட்டமைப்பு]",
+      "skill-pandas": "[translate:Pandas மற்றும் Matplotlib]",
+      "skill-problemsolving": "[translate:பிரச்சினை தீர்க்கும் திறன்]"
+    }
+  };
+
+  function translatePage(languageCode) {
+    const elements = document.querySelectorAll('[data-key]');
+    elements.forEach(el => {
+      const key = el.getAttribute('data-key');
+      if (translations[languageCode] && translations[languageCode][key]) {
+        if (el.tagName === 'A' && key.endsWith('-link')) {
+          el.textContent = translations[languageCode][key];
+        } else if(el.tagName === 'A') {
+          // handle anchor tags with nested links not suffixed by -link
+          el.innerHTML = translations[languageCode][key];
+        } else {
+          el.textContent = translations[languageCode][key];
+        }
+      }
+    });
+  }
+
+  document.getElementById('language-select').addEventListener('change', function() {
+    translatePage(this.value);
+  });
+
   const viewCountSpan = document.getElementById('viewCount');
 
   function updateViewCount() {
@@ -305,12 +457,20 @@
 
   window.onload = function() {
     const count = updateViewCount();
+    translatePage(document.getElementById('language-select').value);
     speak("Welcome to Varshan's portfolio. You are visitor number " + count);
   };
 
   window.addEventListener('beforeunload', function (e) {
     speak("Thank you for visiting Varshan's portfolio. Have a great day!");
   });
+
+  function openModal(id) {
+    document.getElementById(id).classList.add('active');
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('active');
+  }
 </script>
 
 </body>
