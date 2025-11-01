@@ -40,6 +40,7 @@
     position: relative;
     display: inline-block;
     border-radius: 60px;
+    overflow: visible;
     padding: 5px;
     box-shadow: 0 0 10px rgba(138,180,248,0.3);
     flex-shrink: 0;
@@ -215,6 +216,7 @@
     transform: scale(1.1);
     box-shadow: 0 0 20px rgba(138,180,248,0.9);
   }
+  /* Modal styles */
   .modal {
     display: none;
     position: fixed;
@@ -350,19 +352,23 @@
   <div class="grid">
     <div class="card" onclick="openModal('pythonModal')">
       <img src="python.jpg" alt="Python Certification" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
-      <strong>Python Certification</strong>
+      <strong>Python Certification</strong><br/>
+      <small>by Emexo Technologies</small>
     </div>
     <div class="card" onclick="openModal('sqlModal')">
       <img src="sql.jpg" alt="SQL Certification" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
-      <strong>SQL Certification</strong>
+      <strong>SQL Certification</strong><br/>
+      <small>by Scaler</small>
     </div>
     <div class="card" onclick="openModal('promptModal')">
       <img src="prompt.jpg" alt="Introduction To Prompt Engineering" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
-      <strong>Introduction To Prompt Engineering Certification</strong>
+      <strong>Introduction To Prompt Engineering Certification</strong><br/>
+      <small>by Simplilearn</small>
     </div>
     <div class="card" onclick="openModal('businessModal')">
       <img src="business.jpg" alt="Business Communications Certification" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
-      <strong>Business Communications</strong>
+      <strong>Business Communications</strong><br/>
+      <small>by HP Life</small>
     </div>
   </div>
 </section>
@@ -455,6 +461,7 @@
     document.getElementById(id).classList.remove('active');
   }
 
+  // Visitor counter using localStorage
   const viewCountSpan = document.getElementById('viewCount');
 
   function updateViewCount() {
@@ -467,27 +474,9 @@
     count++;
     localStorage.setItem('portfolio_view_count', count);
     viewCountSpan.textContent = count + (count === 1 ? ' visitor' : ' visitors');
-    return count;
   }
 
-  function speak(text) {
-    if ('speechSynthesis' in window) {
-      const msg = new SpeechSynthesisUtterance(text);
-      msg.lang = 'en-US';
-      msg.rate = 1;
-      window.speechSynthesis.cancel();
-      window.speechSynthesis.speak(msg);
-    }
-  }
-
-  window.onload = function() {
-    const count = updateViewCount();
-    speak("Welcome to Varshan's portfolio. You are visitor number " + count);
-  };
-
-  window.addEventListener('beforeunload', function (e) {
-    speak("Thank you for visiting Varshan's portfolio. Have a great day!");
-  });
+  window.onload = updateViewCount;
 </script>
 
 </body>
