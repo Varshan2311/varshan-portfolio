@@ -113,11 +113,6 @@ text-decoration: none;
 .contact-details a:hover {
 color: #a0c4ff;
 }
-.contact-details img {
-width: 18px;
-vertical-align: middle;
-margin-right: 6px;
-}
 .view-counter {
 margin-left: 1rem;
 padding: 5px 12px;
@@ -265,30 +260,12 @@ user-select: none;
 <p>Python Developer</p>
 </div>
 <div class="contact-details">
-<p>
-<img src="https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white" alt="Email icon" />
-Email: <a href="mailto:varshansaravanan23@gmail.com">varshansaravanan23@gmail.com</a>
-</p>
-<p>
-<img src="https://img.shields.io/badge/Phone-25D366?style=flat&logo=whatsapp&logoColor=white" alt="Phone icon" />
-Phone: +91 7339524546
-</p>
-<p>
-<img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat&logo=linkedin&logoColor=white" alt="LinkedIn icon" />
-LinkedIn: <a href="https://www.linkedin.com/in/varshan-saravanan-915b552a3" target="_blank" rel="noopener noreferrer">linkedin.com/in/varshan-saravanan</a>
-</p>
-<p>
-<img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=github&logoColor=white" alt="GitHub icon" />
-GitHub: <a href="https://github.com/Varshan2311" target="_blank" rel="noopener noreferrer">github.com/Varshan2311</a>
-</p>
-<p>
-<img src="https://img.shields.io/badge/LeetCode-F79F1F?style=flat&logo=leetcode&logoColor=white" alt="LeetCode icon" />
-LeetCode: <a href="https://leetcode.com/u/Varshan23/" target="_blank" rel="noopener noreferrer">leetcode.com/u/Varshan23</a>
-</p>
-<p>
-<img src="https://img.shields.io/badge/HackerRank-2EC866?style=flat&logo=hackerrank&logoColor=white" alt="HackerRank icon" />
-HackerRank: <a href="https://www.hackerrank.com/profile/varshansaravana2" target="_blank" rel="noopener noreferrer">hackerrank.com/profile/varshansaravana2</a>
-</p>
+<p>Email: <a href="mailto:varshansaravanan23@gmail.com">varshansaravanan23@gmail.com</a></p>
+<p>Phone: +91 7339524546</p>
+<p>LinkedIn: <a href="https://www.linkedin.com/in/varshan-saravanan-915b552a3" target="_blank" rel="noopener noreferrer">linkedin.com/in/varshan-saravanan</a></p>
+<p>GitHub: <a href="https://github.com/Varshan2311" target="_blank" rel="noopener noreferrer">github.com/Varshan2311</a></p>
+<p>HackerRank: <a href="https://www.hackerrank.com/profile/varshansaravana2" target="_blank" rel="noopener noreferrer">hackerrank.com/profile/varshansaravana2</a></p>
+<p>LeetCode: <a href="https://leetcode.com/u/Varshan23/" target="_blank" rel="noopener noreferrer">leetcode.com/u/Varshan23</a></p>
 </div>
 <div class="view-counter" aria-label="Portfolio view count">
 <svg width="20" height="20" fill="var(--primary-color)" aria-hidden="true" viewBox="0 0 24 24">
@@ -297,13 +274,223 @@ HackerRank: <a href="https://www.hackerrank.com/profile/varshansaravana2" target
 <span id="viewCount">Loading...</span>
 </div>
 </header>
-
-<!-- Other sections like About, Skills, Projects, Education, Achievements, Interests, Languages, Certifications, Resume go here -->
-
+<section id="about">
+<h2>About Me</h2>
+<p>
+I’m a Python developer with strong expertise in Django and SQL,
+passionate about building scalable, high-performance applications.
+I focus on writing clean, efficient code and continuously enhance
+my technical skills through real-world projects, optimization
+challenges, and hands-on problem-solving.
+</p>
+</section>
+<section id="skills">
+<h2>Skills</h2>
+<div class="grid">
+<a href="https://www.google.com/search?q=Python+Programming" target="_blank" class="card">Python Programming</a>
+<a href="https://www.google.com/search?q=SQL+SERVER" target="_blank" class="card">SQL SERVER</a>
+<a href="https://www.google.com/search?q=Django+Framework" target="_blank" class="card">Django Framework</a>
+<a href="https://www.google.com/search?q=Pandas+Matplotlib" target="_blank" class="card">Pandas & Matplotlib</a>
+<a href="https://www.google.com/search?q=Problem+Solving" target="_blank" class="card">Problem Solving</a>
+</div>
+</section>
+<section id="projects">
+<h2>Projects</h2>
+<div class="grid">
+<div class="card">
+<strong>E-Shop Web Application</strong><br/>
+Built using Python, Django, MySQL, and HTML. Includes user login, product catalog, cart, and orders.
+</div>
+<div class="card">
+<strong>Market Survey on Customer Satisfaction</strong><br/>
+Conducted survey on Evocus Black Alkaline Water. Analyzed feedback and presented insights using Excel.
+</div>
+</div>
+</section>
+<section id="education">
+<h2>Education</h2>
+<ul>
+<li onclick="openModal('hkrModal')">B.Com (Banking) - Hajee Karutha Rowther Howdia College (2022 - 2025)</li>
+<li onclick="openModal('hscModal')">HSC - SUM HR Sec School (2021 - 2022)</li>
+<li onclick="openModal('sslcModal')">SSLC - SUM HR Sec School (2019 - 2020)</li>
+</ul>
+</section>
+<section id="achievements">
+<h2>Achievements</h2>
+<ul>
+<li>Winner of Zone 'C' Volleyball Match</li>
+<li>Best NSS Volunteer - Community Service & Leadership</li>
+</ul>
+</section>
+<section id="interests">
+<h2>Interests</h2>
+<p>
+I enjoy trekking, Kabaddi, and listening to crime investigation related podcasts.
+These hobbies sharpen my resilience, teamwork, and analytical thinking.
+</p>
+</section>
+<section id="languages">
+<h2>Languages</h2>
+<ul>
+<li onclick="openModal('englishModal')">English - Advanced</li>
+<li onclick="openModal('tamilModal')">[translate]தமிழ்[/translate] - Native</li>
+<li onclick="openModal('kannadaModal')">[translate]ಕನ್ನಡ[/translate] - Intermediate</li>
+</ul>
+</section>
+<section id="certifications">
+<h2>Certifications</h2>
+<div class="grid">
+<div class="card" onclick="openModal('pythonModal')">
+<img src="https://varshan2311.github.io/varshan-portfolio/python.jpg" alt="Python Certification" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
+<strong>Python Certification</strong>
+</div>
+<div class="card" onclick="openModal('sqlModal')">
+<img src="https://varshan2311.github.io/varshan-portfolio/sql.jpg" alt="SQL Certification" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
+<strong>SQL Certification</strong>
+</div>
+<div class="card" onclick="openModal('promptModal')">
+<img src="https://varshan2311.github.io/varshan-portfolio/prompt.jpg" alt="Introduction To Prompt Engineering" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
+<strong>Introduction To Prompt Engineering Certification</strong>
+</div>
+<div class="card" onclick="openModal('businessModal')">
+<img src="https://varshan2311.github.io/varshan-portfolio/business.jpg" alt="Business Communications Certification" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
+<strong>Business Communications</strong>
+</div>
+<div class="card" onclick="openModal('hackerrankModal')">
+  <img src="https://varshan2311.github.io/varshan-portfolio/hackersqlB.jpg" alt="HackerRank certification test for SQL (Basic)" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
+<strong>HackerRank certification test for SQL (Basic)!</strong>
+</div>
+</div>
+</section>
+<section id="resume">
+<h2>Resume</h2>
+<p>
+<a href="https://varshan2311.github.io/varshan-portfolio/VarshanSResume.pdf" download>
+<button class="download-btn">Download Resume</button>
+</a>
+</p>
+</section>
+<section id="contact">
+<h2>Contact</h2>
+<p>
+Email: <a href="mailto:varshansaravanan23@gmail.com">varshansaravanan23@gmail.com</a><br/>
+Phone: +91 7339524546<br/>
+LinkedIn: <a href="https://www.linkedin.com/in/varshan-saravanan-915b552a3" target="_blank" rel="noopener noreferrer">linkedin.com/in/varshan-saravanan</a><br/>
+GitHub: <a href="https://github.com/Varshan2311" target="_blank" rel="noopener noreferrer">github.com/Varshan2311</a><br/>
+LeetCode: <a href="https://leetcode.com/u/Varshan23/" target="_blank" rel="noopener noreferrer">leetcode.com/u/Varshan23</a>
+</p>
+</section>
 <footer>
 &copy; 2025 Varshan S
 </footer>
-
+<!-- Modals for Education -->
+<div id="hkrModal" class="modal">
+<div class="modal-content">
+<span class="modal-close" onclick="closeModal('hkrModal')">&times;</span>
+<h3>Hajee Karutha Rowther Howdia College</h3>
+<p>A reputed college offering undergraduate commerce programs with a focus on banking, finance, and management. Known for experienced faculty and student support.</p>
+<p><strong>Location:</strong> Uthamapalayam, Theni Dt, Tamil Nadu, India</p>
+</div>
+</div>
+<div id="hscModal" class="modal">
+<div class="modal-content">
+<span class="modal-close" onclick="closeModal('hscModal')">&times;</span>
+<h3>SUM HR Senior Secondary School</h3>
+<p>An accredited senior secondary school providing comprehensive education with emphasis on science, commerce, and arts streams, fostering academic excellence.</p>
+<p><strong>Location:</strong> Royappanpatti, Theni Dt, Tamil Nadu, India</p>
+</div>
+</div>
+<div id="sslcModal" class="modal">
+<div class="modal-content">
+<span class="modal-close" onclick="closeModal('sslcModal')">&times;</span>
+<h3>SUM HR Secondary School</h3>
+<p>A well-known secondary school focusing on a balanced curriculum with academic and extracurricular activities to promote holistic development.</p>
+<p><strong>Location:</strong> Royappanpatti, Theni Dt, Tamil Nadu, India</p>
+</div>
+</div>
+<!-- Modals for Certifications -->
+<div id="pythonModal" class="modal">
+<div class="modal-content">
+<span class="modal-close" onclick="closeModal('pythonModal')">&times;</span>
+<h3>Python Certification</h3>
+<p>Certification from Emexo Technologies recognizing advanced Python programming skills including Django, SQL, and data analysis.</p>
+</div>
+</div>
+<div id="sqlModal" class="modal">
+<div class="modal-content">
+<span class="modal-close" onclick="closeModal('sqlModal')">&times;</span>
+<h3>SQL Certification</h3>
+<p>Scaler certification in SQL, showcasing proficiency in database management, queries, and optimization techniques.</p>
+</div>
+</div>
+<div id="promptModal" class="modal">
+<div class="modal-content">
+<span class="modal-close" onclick="closeModal('promptModal')">&times;</span>
+<h3>Introduction To Prompt Engineering Certification</h3>
+<p>Simplilearn certification on prompt engineering, covering prompt design, testing, and optimization for AI models.</p>
+</div>
+</div>
+<div id="businessModal" class="modal">
+<div class="modal-content">
+<span class="modal-close" onclick="closeModal('businessModal')">&times;</span>
+<h3>Business Communications Certification</h3>
+<p>HP Life certification on effective business communications, presentation skills, and professional interactions.</p>
+</div>
+</div>
+<div id="hackerrankModal" class="modal">
+<div class="modal-content">
+<span class="modal-close" onclick="closeModal('hackerrankModal')">&times;</span>
+<h3>HackerRank Certification</h3>
+<p>Certification for passing the HackerRank SQL (Basic) test, demonstrating foundational SQL skills.</p>
+</div>
+</div>
+<!-- Modals for Languages -->
+<div id="englishModal" class="modal">
+<div class="modal-content">
+<span class="modal-close" onclick="closeModal('englishModal')">&times;</span>
+<h3>English Language History</h3>
+<p>
+5000 B.C.: Indo-European origins<br/>
+55 B.C.: Roman invasion, Celtic spoken<br/>
+450 A.D.: Anglo-Saxon Old English<br/>
+1066: Norman French influence, Middle English<br/>
+1388: Chaucer's Canterbury Tales<br/>
+1476: Printing press introduced<br/>
+1500-1800: Early Modern English, Shakespeare<br/>
+1800-present: Late Modern English, global spread.<br/><br/>
+English is not classified as a classical language.
+</p>
+</div>
+</div>
+<div id="tamilModal" class="modal">
+<div class="modal-content">
+<span class="modal-close" onclick="closeModal('tamilModal')">&times;</span>
+<h3>[translate]தமிழ்[/translate] Language History</h3>
+<p>
+500-300 B.C.: [translate]பழமையான தமிழ் சின்னங்கள்[/translate]<br/>
+2nd century B.C. to 2nd century A.D.: [translate]சங்கakavகால இலக்கியம்[/translate]<br/>
+6th-9th century: [translate]தமிழ் எழுத்து நிலைப்படுத்தல்[/translate]<br/>
+9th-13th century: [translate]சோழர் வம்சம் மற்றும் மரபணு கலாச்சாரம்[/translate]<br/>
+19th-20th century: Literary renaissance<br/>
+Present: Spoken widely in India and Sri Lanka.<br/><br/>
+[translate]தமிழ்[/translate] was officially recognized as a classical language by the Government of India in 2004.
+</p>
+</div>
+</div>
+<div id="kannadaModal" class="modal">
+<div class="modal-content">
+<span class="modal-close" onclick="closeModal('kannadaModal')">&times;</span>
+<h3>[translate]ಕನ್ನಡ[/translate] Language History</h3>
+<p>
+450 A.D.: [translate]ಹಳೆ ಕನ್ನಡ ಶಿಲಾಲೇಖಗಳು[/translate]<br/>
+9th-13th century: Rashtrakuta and Hoysala literary golden age<br/>
+12th century: Poet Pampa<br/>
+19th century: Modern Kannada linguistic reforms<br/>
+Present: Official language of Karnataka state.<br/><br/>
+[translate]ಕನ್ನಡ[/translate] was declared a classical language by the Government of India in 2008.
+</p>
+</div>
+</div>
 <script>
 function openModal(id) {
 document.getElementById(id).classList.add('active');
@@ -343,3 +530,7 @@ speak("Thank you for visiting Varshan's portfolio. Have a great day!");
 </script>
 </body>
 </html>
+
+
+
+
