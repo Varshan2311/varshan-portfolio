@@ -1,531 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Varshan S | Python Developer Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
-<style>
-:root {
---primary-color: #8ab4f8;
---background-color: #121212;
---card-bg: #1e1e1e;
---text-color: #e0e0e0;
---font-family: 'Poppins', sans-serif;
-}
-* {
-box-sizing: border-box;
-}
-body {
-margin: 0; padding: 0;
-font-family: var(--font-family);
-background-color: var(--background-color);
-color: var(--text-color);
-scroll-behavior: smooth;
-}
-header {
-position: sticky;
-top: 0;
-background: #212121;
-color: var(--primary-color);
-padding: 1.5rem 2rem;
-display: flex;
-align-items: center;
-gap: 1.5rem;
-box-shadow: 0 2px 10px rgba(138,180,248,0.3);
-z-index: 1000;
-overflow: visible;
-}
-.profile-frame {
-position: relative;
-display: inline-block;
-border-radius: 60px;
-padding: 5px;
-box-shadow: 0 0 10px rgba(138,180,248,0.3);
-flex-shrink: 0;
-}
-.profile-frame img {
-width: 120px;
-height: 130px;
-border-radius: 60px;
-object-fit: cover;
-object-position: top center;
-display: block;
-transition: transform 0.3s ease, box-shadow 0.3s ease;
-box-shadow: 0 0 8px rgba(138,180,248,0.5);
-}
-.profile-frame img:hover {
-transform: scale(1.1);
-box-shadow: 0 0 15px rgba(138,180,248,0.8);
-}
-.lightning-effect {
-position: absolute;
-top: 5px; left: 10px;
-width: 130px;
-height: 130px;
-border-radius: 50%;
-pointer-events: none;
-z-index: 5;
-background: repeating-conic-gradient(
-from 0deg,
-transparent 0deg 15deg,
-rgba(138,180,248,0.07) 15deg 30deg
-);
-animation: lightning 3s infinite;
-}
-@keyframes lightning {
-0%, 30%, 100% { opacity: 0; }
-15% { opacity: 0.25; }
-20% { opacity: 0.15; }
-}
-header div.name-title {
-display: flex;
-flex-direction: column;
-justify-content: center;
-white-space: nowrap;
-}
-header div.name-title h1 {
-margin: 0;
-font-weight: 600;
-font-size: 1.75rem;
-letter-spacing: 1px;
-}
-header div.name-title p {
-margin: 0.1rem 0 0;
-font-weight: 300;
-font-size: 1.1rem;
-color: var(--primary-color);
-}
-.contact-details {
-margin-left: auto;
-color: var(--primary-color);
-font-size: 0.9rem;
-line-height: 1.4;
-text-align: right;
-}
-.contact-details p {
-margin: 0.2rem 0;
-}
-.contact-details a {
-color: var(--primary-color);
-text-decoration: none;
-}
-.contact-details a:hover {
-color: #a0c4ff;
-}
-.view-counter {
-margin-left: 1rem;
-padding: 5px 12px;
-background: #2f2f2f;
-border-radius: 12px;
-font-size: 0.9rem;
-box-shadow: 0 0 8px var(--primary-color);
-display: flex;
-align-items: center;
-white-space: nowrap;
-user-select: none;
-}
-.view-counter span {
-margin-left: 0.5rem;
-}
-section {
-background: var(--card-bg);
-max-width: 900px;
-margin: 3rem auto;
-padding: 2rem 1.5rem;
-border-radius: 12px;
-box-shadow: 0 2px 8px rgba(138,180,248,0.15);
-transition: background-color 0.3s ease;
-}
-section:hover {
-background-color: #292929;
-}
-h2 {
-color: var(--primary-color);
-border-bottom: 2px solid var(--primary-color);
-padding-bottom: 0.5rem;
-margin-top: 0;
-font-weight: 600;
-letter-spacing: 1px;
-}
-.grid {
-display: grid;
-gap: 1.25rem;
-grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-margin-top: 1rem;
-}
-.card {
-background: #2f2f2f;
-padding: 1.25rem;
-border-radius: 14px;
-box-shadow: 0 1px 6px rgba(138,180,248,0.2);
-border: 1px solid transparent;
-transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-cursor: pointer;
-text-align: center;
-color: var(--text-color);
-user-select: none;
-}
-.card:hover {
-transform: scale(1.03);
-box-shadow: 0 4px 15px rgba(138,180,248,0.4);
-border-color: var(--primary-color);
-}
-ul {
-list-style: none;
-padding-left: 0;
-}
-ul li {
-padding: 0.6rem 0;
-cursor: pointer;
-border-radius: 6px;
-transition: background-color 0.2s ease;
-}
-ul li:hover {
-background-color: rgba(138,180,248,0.2);
-}
-a {
-color: var(--primary-color);
-text-decoration: none;
-transition: color 0.3s ease;
-}
-a:hover {
-color: #a0c4ff;
-}
-footer {
-background: #2f2f2f;
-color: var(--primary-color);
-text-align: center;
-padding: 1rem;
-box-shadow: 0 -2px 8px rgba(138,180,248,0.15);
-margin-top: 5rem;
-}
-.download-btn {
-background: var(--primary-color);
-color: #000;
-padding: 0.8rem 1.5rem;
-font-size: 1rem;
-border: none;
-border-radius: 8px;
-box-shadow: 0 0 10px rgba(138,180,248,0.6);
-cursor: pointer;
-transition: all 0.3s ease;
-}
-.download-btn:hover {
-transform: scale(1.1);
-box-shadow: 0 0 20px rgba(138,180,248,0.9);
-}
-.modal {
-display: none;
-position: fixed;
-z-index: 10000;
-left: 0; top: 0;
-width: 100%; height: 100%;
-background: rgba(0,0,0,0.6);
-justify-content: center;
-align-items: center;
-}
-.modal.active {
-display: flex;
-}
-.modal-content {
-background: var(--card-bg);
-color: var(--text-color);
-padding: 2rem;
-border-radius: 12px;
-width: 90%;
-max-width: 450px;
-box-shadow: 0 0 15px var(--primary-color);
-position: relative;
-}
-.modal-close {
-position: absolute;
-top: 10px; right: 15px;
-font-size: 24px;
-font-weight: bold;
-color: var(--primary-color);
-cursor: pointer;
-user-select: none;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Varshan S | Python Developer Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #000000;
+      color: #f2f2f2;
+    }
+    header {
+      background: linear-gradient(135deg, #1a0000, #330000, #4d0000);
+      color: #ff2e2e;
+      padding: 2rem;
+      display: flex;
+      align-items: center;
+      box-shadow: 0 0 20px #ff2e2e;
+    }
+    header img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-right: 1.5rem;
+      object-fit: cover;
+      object-position: top; /* Shows more of the hair */
+      border: 3px solid #ff2e2e;
+      box-shadow: 0 0 15px #ff2e2e;
+    }
+    header div h1 {
+      font-size: 2rem;
+      text-shadow: 0 0 10px #ff2e2e;
+    }
+    header div p {
+      font-size: 1.1rem;
+      text-shadow: 0 0 5px #ff2e2e;
+    }
+    section {
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      color: #ff2e2e;
+      border-bottom: 2px solid #ff2e2e;
+      padding-bottom: 0.5rem;
+      text-shadow: 0 0 8px #ff2e2e;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .card {
+      background: #1a1a1a;
+      padding: 1rem;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #ff2e2e;
+      transform: perspective(500px) rotateX(2deg);
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: perspective(500px) rotateX(0deg) scale(1.02);
+    }
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+    a {
+      color: #ff2e2e;
+      text-decoration: none;
+      text-shadow: 0 0 5px #ff2e2e;
+    }
+    footer {
+      background: #1a1a1a;
+      color: #ff2e2e;
+      text-align: center;
+      padding: 1rem;
+      box-shadow: 0 0 10px #ff2e2e;
+    }
+    .download-btn {
+      background: #ff2e2e;
+      color: #000000;
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 0 15px #ff2e2e;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .download-btn:hover {
+      transform: scale(1.05);
+    }
+  </style>
 </head>
 <body>
-<header>
-<div class="profile-frame">
-<img src="https://varshan2311.github.io/varshan-portfolio/profile.jpg" alt="Varshan's Profile Photo" />
-<div class="lightning-effect"></div>
-</div>
-<div class="name-title">
-<h1>Varshan S</h1>
-<p>Python Developer</p>
-</div>
-<div class="contact-details">
-<p>Email: <a href="mailto:varshansaravanan23@gmail.com">varshansaravanan23@gmail.com</a></p>
-<p>Phone: +91 7339524546</p>
-<p>LinkedIn: <a href="https://www.linkedin.com/in/varshan-saravanan-915b552a3" target="_blank" rel="noopener noreferrer">linkedin.com/in/varshan-saravanan</a></p>
-<p>GitHub: <a href="https://github.com/Varshan2311" target="_blank" rel="noopener noreferrer">github.com/Varshan2311</a></p>
-<p>LeetCode: <a href="https://leetcode.com/u/Varshan23/" target="_blank" rel="noopener noreferrer">leetcode.com/u/Varshan23</a></p>
-</div>
-<div class="view-counter" aria-label="Portfolio view count">
-<svg width="20" height="20" fill="var(--primary-color)" aria-hidden="true" viewBox="0 0 24 24">
-<path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
-</svg>
-<span id="viewCount">Loading...</span>
-</div>
-</header>
-<section id="about">
-<h2>About Me</h2>
-<p>
-I’m a Python developer with strong expertise in Django and SQL,
-passionate about building scalable, high-performance applications.
-I focus on writing clean, efficient code and continuously enhance
-my technical skills through real-world projects, optimization
-challenges, and hands-on problem-solving.
-</p>
-</section>
-<section id="skills">
-<h2>Skills</h2>
-<div class="grid">
-<a href="https://www.google.com/search?q=Python+Programming" target="_blank" class="card">Python Programming</a>
-<a href="https://www.google.com/search?q=SQL+SERVER" target="_blank" class="card">SQL SERVER</a>
-<a href="https://www.google.com/search?q=Django+Framework" target="_blank" class="card">Django Framework</a>
-<a href="https://www.google.com/search?q=Pandas+Matplotlib" target="_blank" class="card">Pandas & Matplotlib</a>
-<a href="https://www.google.com/search?q=Problem+Solving" target="_blank" class="card">Problem Solving</a>
-</div>
-</section>
-<section id="projects">
-<h2>Projects</h2>
-<div class="grid">
+
+  <header>
+    <img src="profile.jpg" alt="Varshan's Profile Photo" />
+    <div>
+      <h1>Varshan S</h1>
+      <p>Python Developer</p>
+    </div>
+  </header>
+
+  <section>
+    <h2>About Me</h2>
+    <p>
+      I’m a Python developer with strong expertise in Django and SQL, passionate about building scalable, high-performance applications. I focus on writing clean, efficient code and continuously enhance my technical skills through real-world projects, optimization challenges, and hands-on problem-solving.
+    </p>
+  </section>
+
+  <section>
+    <h2>Skills</h2>
+    <div class="grid">
+      <div class="card">Python Programming</div>
+      <div class="card">SQL SERVER</div>
+      <div class="card">Django Framework</div>
+      <div class="card">Pandas & Matplotlib</div>
+      <div class="card">Problem Solving</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <div class="grid">
+      <div class="card">
+        <strong>E-Shop Web Application</strong><br/>
+        Built using Python, Django, MySQL, and HTML. Includes user login, product catalog, cart, and orders.
+      </div>
+      <div class="card">
+        <strong>Market Survey on Customer Satisfaction</strong><br/>
+        Conducted survey on Evocus Black Alkaline Water. Analyzed feedback and presented insights using Excel.
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Education</h2>
+    <ul>
+      <li><strong>B.Com (Banking)</strong> - Hajee Karutha Rowther Howdia College (2022 - 2025)</li>
+      <li><strong>HSC</strong> - SUM HR Sec School (2021 - 2022)</li>
+      <li><strong>SSLC</strong> - SUM HR Sec School (2019 - 2020)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Achievements</h2>
+    <ul>
+      <li>Winner of Zone 'C' Volleyball Match</li>
+      <li>Best NSS Volunteer - Community Service & Leadership</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Interests</h2>
+    <p>
+      I enjoy trekking, Kabaddi, and listening to crime investigation related podcasts. These hobbies sharpen my resilience, teamwork, and analytical thinking.
+    </p>
+  </section>
+
+  <section>
+    <h2>Languages</h2>
+    <ul>
+      <li>English - Advanced</li>
+      <li>Tamil - Native</li>
+      <li>Kannada - Intermediate</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>Certifications</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="python.jpg" alt="Python Certification" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
+        <strong>Python Certification</strong><br/>
+        Emexo Technologies
+      </div>
+      <div class="card">
+        <img src="sql.jpg" alt="SQL Certification" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
+        <strong>SQL Certification</strong><br/>
+        Scaler
+      </div>
 <div class="card">
-<strong>E-Shop Web Application</strong><br/>
-Built using Python, Django, MySQL, and HTML. Includes user login, product catalog, cart, and orders.
-</div>
-<div class="card">
-<strong>Market Survey on Customer Satisfaction</strong><br/>
-Conducted survey on Evocus Black Alkaline Water. Analyzed feedback and presented insights using Excel.
-</div>
-</div>
-</section>
-<section id="education">
-<h2>Education</h2>
-<ul>
-<li onclick="openModal('hkrModal')">B.Com (Banking) - Hajee Karutha Rowther Howdia College (2022 - 2025)</li>
-<li onclick="openModal('hscModal')">HSC - SUM HR Sec School (2021 - 2022)</li>
-<li onclick="openModal('sslcModal')">SSLC - SUM HR Sec School (2019 - 2020)</li>
-</ul>
-</section>
-<section id="achievements">
-<h2>Achievements</h2>
-<ul>
-<li>Winner of Zone 'C' Volleyball Match</li>
-<li>Best NSS Volunteer - Community Service & Leadership</li>
-</ul>
-</section>
-<section id="interests">
-<h2>Interests</h2>
-<p>
-I enjoy trekking, Kabaddi, and listening to crime investigation related podcasts.
-These hobbies sharpen my resilience, teamwork, and analytical thinking.
-</p>
-</section>
-<section id="languages">
-<h2>Languages</h2>
-<ul>
-<li onclick="openModal('englishModal')">English - Advanced</li>
-<li onclick="openModal('tamilModal')">Tamil - Native</li>
-<li onclick="openModal('kannadaModal')">Kannada - Intermediate</li>
-</ul>
-</section>
-<section id="certifications">
-<h2>Certifications</h2>
-<div class="grid">
-<div class="card" onclick="openModal('pythonModal')">
-<img src="https://varshan2311.github.io/varshan-portfolio/python.jpg" alt="Python Certification" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
-<strong>Python Certification</strong>
-</div>
-<div class="card" onclick="openModal('sqlModal')">
-<img src="https://varshan2311.github.io/varshan-portfolio/sql.jpg" alt="SQL Certification" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
-<strong>SQL Certification</strong>
-</div>
-<div class="card" onclick="openModal('promptModal')">
-<img src="https://varshan2311.github.io/varshan-portfolio/prompt.jpg" alt="Introduction To Prompt Engineering" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
-<strong>Introduction To Prompt Engineering Certification</strong>
-</div>
-  <div class="card" onclick="openModal('sql basic model')">
-<img src="https://varshan2311.github.io/varshan-portfolio/hackersqlB.jpg" alt="HackerRank certification test for SQL(Basic)!" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
-<strong>HackerRank certification test for SQL(Basic)!</strong>
-</div>
-<div class="card" onclick="openModal('businessModal')">
-<img src="https://varshan2311.github.io/varshan-portfolio/business.jpg" alt="Business Communications Certification" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
-<strong>Business Communications</strong>
-</div>
-</div>
-</section>
-<section id="resume">
-<h2>Resume</h2>
-<p>
-<a href="https://varshan2311.github.io/varshan-portfolio/VarshanSResume.pdf" download>
-<button class="download-btn">Download Resume</button>
-</a>
-</p>
-</section>
-<section id="contact">
-<h2>Contact</h2>
-<p>
-Email: <a href="mailto:varshansaravanan23@gmail.com">varshansaravanan23@gmail.com</a><br/>
-Phone: +91 7339524546<br/>
-LinkedIn: <a href="https://www.linkedin.com/in/varshan-saravanan-915b552a3" target="_blank" rel="noopener noreferrer">linkedin.com/in/varshan-saravanan</a><br/>
-GitHub: <a href="https://github.com/Varshan2311" target="_blank" rel="noopener noreferrer">github.com/Varshan2311</a><br/>
-LeetCode: <a href="https://leetcode.com/u/Varshan23/" target="_blank" rel="noopener noreferrer">leetcode.com/u/Varshan23</a>
-</p>
-</section>
-<footer>
-&copy; 2025 Varshan S
-</footer>
+        <img src="prompt.jpg" alt="Introduction To Prompt Engineering" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
+        <strong>Introduction To Prompt Engineering Certification</strong><br/>
+        Simplilearn
+      </div>
 
-<!-- Modals for Education -->
-<div id="hkrModal" class="modal">
-<div class="modal-content">
-<span class="modal-close" onclick="closeModal('hkrModal')">&times;</span>
-<h3>Hajee Karutha Rowther Howdia College</h3>
-<p>A reputed college offering undergraduate commerce programs with a focus on banking, finance, and management. Known for experienced faculty and student support.</p>
-<p><strong>Location:</strong> Uthamapalayam, Theni Dt, Tamil Nadu, India</p>
-</div>
-</div>
-<div id="hscModal" class="modal">
-<div class="modal-content">
-<span class="modal-close" onclick="closeModal('hscModal')">&times;</span>
-<h3>SUM HR Senior Secondary School</h3>
-<p>An accredited senior secondary school providing comprehensive education with emphasis on science, commerce, and arts streams, fostering academic excellence.</p>
-<p><strong>Location:</strong> Royappanpatti, Theni Dt, Tamil Nadu, India</p>
-</div>
-</div>
-<div id="sslcModal" class="modal">
-<div class="modal-content">
-<span class="modal-close" onclick="closeModal('sslcModal')">&times;</span>
-<h3>SUM HR Secondary School</h3>
-<p>A well-known secondary school focusing on a balanced curriculum with academic and extracurricular activities to promote holistic development.</p>
-<p><strong>Location:</strong> Royappanpatti, Theni Dt, Tamil Nadu, India</p>
-</div>
-</div>
+      <div class="card">
+        <img src="business.jpg" alt="Business Communications Certification" style="width:100%; border-radius:8px; margin-bottom:0.5rem;" />
+        <strong>Business Communications</strong><br/>
+        HP Life
+      </div>
+    </div>
+  </section>
 
-<!-- Modals for Certifications -->
-<div id="pythonModal" class="modal">
-<div class="modal-content">
-<span class="modal-close" onclick="closeModal('pythonModal')">&times;</span>
-<h3>Python Certification</h3>
-<p>Certification from Emexo Technologies recognizing advanced Python programming skills including Django, SQL, and data analysis.</p>
-</div>
-</div>
-<div id="sqlModal" class="modal">
-<div class="modal-content">
-<span class="modal-close" onclick="closeModal('sqlModal')">&times;</span>
-<h3>SQL Certification</h3>
-<p>Scaler certification in SQL, showcasing proficiency in database management, queries, and optimization techniques.</p>
-</div>
-</div>
-<div id="promptModal" class="modal">
-<div class="modal-content">
-<span class="modal-close" onclick="closeModal('promptModal')">&times;</span>
-<h3>Introduction To Prompt Engineering Certification</h3>
-<p>Simplilearn certification on prompt engineering, covering prompt design, testing, and optimization for AI models.</p>
-</div>
-</div>
-<div id="businessModal" class="modal">
-<div class="modal-content">
-<span class="modal-close" onclick="closeModal('businessModal')">&times;</span>
-<h3>Business Communications Certification</h3>
-<p>HP Life certification on effective business communications, presentation skills, and professional interactions.</p>
-</div>
-</div>
-
-<!-- Modals for Languages -->
-<div id="englishModal" class="modal">
-  <div class="modal-content">
-    <span class="modal-close" onclick="closeModal('englishModal')">&times;</span>
-    <h3>English Language History</h3>
+  <section>
+    <h2>Resume</h2>
     <p>
-      5000 B.C.: Indo-European origins<br/>
-      55 B.C.: Roman invasion, Celtic spoken<br/>
-      450 A.D.: Anglo-Saxon Old English<br/>
-      1066: Norman French influence, Middle English<br/>
-      1388: Chaucer's Canterbury Tales<br/>
-      1476: Printing press introduced<br/>
-      1500-1800: Early Modern English, Shakespeare<br/>
-      1800-present: Late Modern English, global spread.<br/><br/>
-      English is not classified as a classical language.
+      <a href="VarshanSResume.pdf" download>
+        <button class="download-btn">Download Resume</button>
+      </a>
     </p>
-  </div>
-</div>
+  </section>
 
-<div id="tamilModal" class="modal">
-  <div class="modal-content">
-    <span class="modal-close" onclick="closeModal('tamilModal')">&times;</span>
-    <h3><translate>தமிழ்</translate> Language History</h3>
+  <section>
+    <h2>Contact</h2>
     <p>
-      500-300 B.C.: <translate>பழமையான தமிழ் சின்னங்கள்</translate><br/>
-      2nd century B.C. to 2nd century A.D.: <translate>சங்கakavகால இலக்கியம்</translate><br/>
-      6th-9th century: <translate>தமிழ் எழுத்து நிலைப்படுத்தல்</translate><br/>
-      9th-13th century: <translate>சோழர் வம்சம் மற்றும் மரபணு கலாச்சாரம்</translate><br/>
-      19th-20th century: Literary renaissance<br/>
-      Present: Spoken widely in India and Sri Lanka.<br/><br/>
-      <translate>தமிழ்</translate> was officially recognized as a classical language by the Government of India in 2004.
+      Email: <a href="mailto:varshansaravanan23@gmail.com">varshansaravanan23@gmail.com</a><br/>
+      Phone: +91 7339524546<br/>
+      LinkedIn: <a href="https://www.linkedin.com/in/varshan-saravanan-915b552a3" target="_blank">linkedin.com/in/varshan-saravanan</a><br/>
+      GitHub: <a href="https://github.com/Varshan2311" target="_blank">github.com/Varshan2311</a><br/>
+      LeetCode: <a href="https://leetcode.com/u/Varshan23/" target="_blank">leetcode.com/u/Varshan23</a>
     </p>
-  </div>
-</div>
+  </section>
 
-<div id="kannadaModal" class="modal">
-  <div class="modal-content">
-    <span class="modal-close" onclick="closeModal('kannadaModal')">&times;</span>
-    <h3><translate>ಕನ್ನಡ</translate> Language History</h3>
-    <p>
-      450 A.D.: <translate>ಹಳೆ ಕನ್ನಡ ಶಿಲಾಲೇಖಗಳು</translate><br/>
-      9th-13th century: Rashtrakuta and Hoysala literary golden age<br/>
-      12th century: Poet Pampa<br/>
-      19th century: Modern Kannada linguistic reforms<br/>
-      Present: Official language of Karnataka state.<br/><br/>
-      <translate>ಕನ್ನಡ</translate> was declared a classical language by the Government of India in 2008.
-    </p>
-  </div>
-</div>
+  <footer>
+    &copy; 2025 Varshan S
+  </footer>
 
-<script>
-function openModal(id) {
-  document.getElementById(id).classList.add('active');
-}
-function closeModal(id) {
-  document.getElementById(id).classList.remove('active');
-}
-const viewCountSpan = document.getElementById('viewCount');
-function updateViewCount() {
-  let count = localStorage.getItem('portfolio_view_count');
-  if (count === null) {
-    count = 0;
-  } else {
-    count = parseInt(count);
-  }
-  count++;
-  localStorage.setItem('portfolio_view_count', count);
-  viewCountSpan.textContent = count + (count === 1 ? ' visitor' : ' visitors');
-  return count;
-}
-function speak(text) {
-  if ('speechSynthesis' in window) {
-    const msg = new SpeechSynthesisUtterance(text);
-    msg.lang = 'en-US';
-    msg.rate = 1;
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(msg);
-  }
-}
-window.onload = function() {
-  const count = updateViewCount();
-  speak("Welcome to Varshan's portfolio. You are visitor number " + count);
-};
-window.addEventListener('beforeunload', function (e) {
-  speak("Thank you for visiting Varshan's portfolio. Have a great day!");
-});
-</script>
 </body>
 </html>
-
